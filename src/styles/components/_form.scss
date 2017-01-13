@@ -1,0 +1,20 @@
+
+.error-handlers {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  font-weight: 700;
+  color: $red;
+}
+
+.form-details {
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 1px solid $coolgrey;
+  background: $light-grey;
+
+  label {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: $blue;
+  }
+}

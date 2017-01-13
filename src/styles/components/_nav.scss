@@ -1,0 +1,75 @@
+.top-bar, .top-bar ul {
+  background-color: $nav-background;
+  border-radius: .25em;
+}
+
+
+.top-bar {
+  border-bottom: 1px solid $coolgrey;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+
+ .menu-text {
+    color: $nav-text-color;
+    font-size: 0.9rem;
+    padding: 0.7rem 0.3rem;
+  }
+
+  .top-bar-middle {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    input {
+    max-width: 400px;
+    width: 400px;
+    }
+  }
+
+  .menu > li > a {
+    display: block;
+    line-height: 1;
+    font-size: .97rem;
+    margin-bottom: 0;
+  }
+
+.breadcrumbs li {
+  text-transform: none;
+  font-weight: normal;
+}
+
+  .active {
+    font-weight: bold;
+  }
+
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 10, 0.85);
+}
+
+.modal-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: $off-white;
+  padding: 0 20px;
+  outline: none;
+}
+
+.signin-modal-size {
+  // height: 700px;
+  width: 600px;
+}
+//
+.signup-modal-size {
+  // height: 800px;
+  width: 600px;
+}

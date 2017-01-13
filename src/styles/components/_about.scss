@@ -1,0 +1,24 @@
+.container__header {
+  background: $light-grey;
+  border: 1px solid $coolgrey;
+  padding: 2rem;
+  margin: 0 2rem;
+  color: black;
+}
+
+.message {
+  color: $nav-bg-hover-color;
+}
+
+.container__message {
+  color: black;
+}
+
+.page-title {
+  margin: 0;
+  padding: 15%;
+}
+
+li {
+  list-style-type: none;
+}

@@ -1,0 +1,60 @@
+.background-image {
+	background: url(/assets/images/background_lowRes.jpg);
+	background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.app {
+  display: flex;
+  justify-content: space-around;
+}
+
+body {
+	background-color: $off-white;
+	font-size: .95rem;
+	color: $blue;
+
+	.modal {
+	  position: fixed;
+	  top: 40px;
+	  left: 40px;
+	  right: 40px;
+	  bottom: 40px;
+	  border: 1px solid #ccc;
+	  background: #fff;
+	  overflow: auto;
+	  border-radius: 4px;
+	  outline: none;
+	  padding: 20px;
+	  display: block;
+	}
+
+}
+
+html {
+  height: 100%;
+}
+
+.content {
+  padding-top: 75%;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1)
+               0px 18px 23px rgba(0,0,0,0.1);
+  h1 {
+		font-weight: 700;
+    font-size: 3.5em;
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+
+  hr {
+      width: 400px;
+      border-top: 1px solid #f8f8f8;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+}

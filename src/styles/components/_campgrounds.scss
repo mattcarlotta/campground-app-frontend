@@ -1,0 +1,42 @@
+.jumbotron {
+  background: $light-grey;
+  border: 1px solid $coolgrey;
+  padding: 1.5rem;
+  margin: 3rem 0;
+  color: $jumbtron-text-color;
+
+  h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  }
+
+}
+
+.image-container {
+  position: relative;
+  padding: .25rem;
+  border: 1px solid $coolgrey;
+  margin-bottom: 2rem;
+  background: $light-grey;
+
+  p {
+    margin-top: 1rem;
+    color: $dark-blue;
+  }
+}
+
+.img-thumbnail {
+  img {
+  height: 16rem;
+  }
+}
+
+.styled {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  background-color: darkslategrey;
+}
+
+.styled:hover {
+  background-color: #356464;
+}

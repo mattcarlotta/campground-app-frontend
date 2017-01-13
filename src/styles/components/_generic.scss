@@ -1,0 +1,74 @@
+.align-left {
+  float: left !important;
+}
+
+.container {
+  margin-top: 1.5rem;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.expand {
+  width: 100%;
+}
+
+.img-rounded {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.inset {
+  padding-left: 5rem;
+}
+
+.index-link {
+  margin-top: 7rem;
+}
+
+.offset-right {
+  font-weight: 900;
+  float: right;
+  border-radius: 3px;
+}
+
+.on-top {
+  z-index: 3;
+}
+
+.marginalize {
+  margin: 0 .7rem;
+  margin-bottom: 1.5rem;
+}
+
+.padded {
+  padding-top: 1rem;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.small-icon {
+  font-size: .8rem;
+}
+
+.spaced {
+  margin: .7rem 0;
+}
+
+.stylized, .button:focus {
+  background-color: transparent;
+  outline: none;
+  color: $blue;
+}
+
+.title {
+  color: $blue
+}
+
+#uppercased {
+    text-transform: uppercase;
+    font-weight: 800;
+}

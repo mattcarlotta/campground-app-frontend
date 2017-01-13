@@ -1,0 +1,82 @@
+.campground {
+  padding: 0;
+  margin-bottom: 2rem;
+  border: 1px solid $coolgrey;
+  background: $light-grey;
+
+  .title {
+    font-size: 1.1rem;
+    color: $blue;
+    font-weight: 600;
+    margin-top: .5rem;
+  }
+
+  .description {
+    padding: 1rem;
+  }
+
+  .submitted {
+    margin-right: 1rem;
+    text-align: right;
+  }
+}
+
+.title-break {
+  margin: 1.2rem 10rem;
+}
+
+.button.warning {
+  margin-left: 0.5rem;
+  width: 60px;
+  color: white;
+}
+
+.comments-container {
+
+  .comments-icon {
+    color: $blue;
+    font-weight: 600;
+  }
+
+  // .user-comments {
+  //   font-size: .9rem;
+  // }
+
+  .new-comment-post {
+    word-wrap: break-word;
+    border-radius: 2px;
+    line-height: 1.5;
+    margin: 0;
+    background-color: transparent;
+    resize: none;
+  }
+
+  hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+}
+
+
+.input {
+  overflow: hidden;
+  padding-right: .5em;
+}
+
+.large-image-container {
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.campground-details {
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 1px solid $coolgrey;
+  background: $light-grey;
+
+  h3, h4, p {
+    color: $blue;
+  }
+}
