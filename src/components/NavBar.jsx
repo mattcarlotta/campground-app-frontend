@@ -25,7 +25,7 @@ class NavBar extends Component {
 
   renderLinks() {
     if (this.props.authenticated ) {
-      const signedinUser = !this.props.signedinUser ? localStorage.getItem('userId') : this.props.signedinUser;
+      const signedinUser = this.props.signedinUser;
 
       return [
         <div className="top-bar-right" key="0">
