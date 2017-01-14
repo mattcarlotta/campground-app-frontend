@@ -60,17 +60,13 @@ export function fetchCampground(id){
   return function(dispatch) {
     axios.get(`${ROOT_URL}/campgrounds/${id}`)
     .then(response => {
-      if(!response.data.campground) {
-        browserHistory.push('/campgrounds');
-      } else {
-          dispatch(fetchWeather(response.data.campground.zip));
-
-          dispatch({
-            type: FETCH_CAMPGROUND,
-            payload: response.data.campground
-          });
-        }
+      dispatch(fetchWeather(response.data.campground.zip));
+      dispatch({
+        type: FETCH_CAMPGROUND,
+        payload: response.data.campground
       });
+    })
+    .catch(({ response }) => dispatch(authError(response.data.err)));
   };
 }
 
@@ -96,10 +92,10 @@ export function addNewCampground({ name, image, description, location, zip }) {
     // Submit email/password to server
     axios.post(`${ROOT_URL}/campgrounds/new`, { name, image, description, location, zip })
     .then(response => {
-      dispatch(authSuccess('Succesfully created a new campground!'));
+      dispatch(authSuccess(response.data.message));
       browserHistory.push('/campgrounds');
     })
-      .catch(({ response }) => dispatch(authError('There was a problem adding a new campground, please try again later')));
+      .catch(({ response }) => dispatch(authError(response.data.err)));
   };
 }
 
@@ -108,10 +104,10 @@ export function editCampground({ id, name, image, description, location, zip }) 
     // Submit email/password to server
     axios.put(`${ROOT_URL}/campgrounds/edit/:id`, { id, name, image, description, location, zip })
     .then(response => {
-      dispatch(authSuccess('Succesfully edited the campground!'));
+      dispatch(authSuccess(response.data.updatedCampground));
       browserHistory.goBack();
     })
-    .catch(({ response }) => dispatch(authError('There was a problem editing the campground, please try again later')));
+    .catch(({ response }) => dispatch(authError(response.data.err)));
   };
 }
 
@@ -119,12 +115,13 @@ export function deleteCampground(id) {
   return function(dispatch) {
     axios.delete(`${ROOT_URL}/campgrounds/delete/${id}`)
     .then(response => {
-      dispatch(authSuccess('Succesfully deleted the campground!'));
+      dispatch(authSuccess(response.data.message));
       dispatch({
         type: CAMPGROUND_DELETE
       });
       browserHistory.push('/campgrounds');
-    });
+    })
+    .catch(({ response }) => dispatch(authError(response.data.err)));
   }
 }
 
@@ -139,7 +136,7 @@ export function fetchUser(id) {
     })
     .catch(({ response }) => {
       dispatch(signoutUser());
-      dispatch(authError('There was a problem locating your usename. Please sign in again!'));
+      dispatch(authError(response.data.err));
     });
   }
 }
@@ -158,7 +155,7 @@ export function signinUser({ username, password }) {
       // If req is good,
       // - Update state to indicate user is auth'd
       dispatch({ type: AUTH_USER });
-      dispatch(authSuccess('Succesfully signed in! Welcome to yelp camp!'));
+      dispatch(authSuccess(response.data.message));
       dispatch({ type: SIGNIN_MODAL });
       // - Save JWT token
       localStorage.setItem('token', response.data.token);
@@ -186,11 +183,12 @@ export function signupUser({ email, username, password }) {
       // If req is good,
       // - Update state to indicate user is auth'd
       dispatch({ type: AUTH_USER });
-        dispatch(authSuccess('Succesfully signed up! Welcome to yelp camp!'));
+      dispatch(authSuccess(response.data.message));
       dispatch({ type: SIGNUP_MODAL });
+      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data.user});
       // - Save JWT token
       localStorage.setItem('token', response.data.token);
-      // localStorage.setItem('username', response.data.username);
+      localStorage.setItem('userId', response.data.userId);
       // - Redirect to route '/feature'
       browserHistory.push('/campgrounds');
     })
