@@ -54,7 +54,9 @@ class CampgroundForm extends Component {
       formProps = { id: this.props.params.id, ...formProps};
       this.props.editCampground(formProps);
     } else {
-      this.props.addNewCampground(formProps)
+      formProps = { ...formProps, author: this.props.signedinUser}
+      // console.log(formProps);
+      this.props.addNewCampground(formProps);
     }
   }
 
@@ -111,7 +113,8 @@ class CampgroundForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    campground: state.campground.campground
+    campground: state.campground.campground,
+    signedinUser: state.signedinUser.username,
   };
 }
 

@@ -87,10 +87,10 @@ export function fetchWeather(zip) {
 //==========================================================================
 
 
-export function addNewCampground({ name, image, description, location, zip }) {
+export function addNewCampground({ name, image, description, location, zip, author }) {
   return function(dispatch) {
     // Submit email/password to server
-    axios.post(`${ROOT_URL}/campgrounds/new`, { name, image, description, location, zip })
+    axios.post(`${ROOT_URL}/campgrounds/new`, { name, image, description, location, zip, author })
     .then(response => {
       dispatch(authSuccess(response.data.message));
       browserHistory.push('/campgrounds');
@@ -192,7 +192,7 @@ export function signupUser({ email, username, password }) {
       // - Redirect to route '/feature'
       browserHistory.push('/campgrounds');
     })
-    .catch(({ response }) => dispatch(authError(response.data.error)));
+    .catch(({ response }) => dispatch(authError(response.data.err)));
   }
 }
 

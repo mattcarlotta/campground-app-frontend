@@ -16,6 +16,16 @@ class CampgroundsApp extends Component{
     this.props.resetSearchText('');
   }
 
+  showAddCampgroundButton() {
+    if (this.props.authenticated) {
+      return (
+        <p>
+          <Link to="/campgrounds/new" className="button primary rounded spaced">Add New Campground</Link>
+        </p>
+      );
+    }
+  }
+
   renderCampgrounds() {
     const { campgrounds, searchText } = this.props;
 
@@ -56,9 +66,7 @@ class CampgroundsApp extends Component{
                 <div className="inset">
                   <h1>Welcome to Yelp Camp</h1>
                   <h6>View our campgrounds from all over the United States!</h6>
-                  <p>
-                    <Link to="/campgrounds/new" className="button primary rounded spaced">Add New Campground</Link>
-                  </p>
+                {this.showAddCampgroundButton()}
                 </div>
               </div>
             </div>
@@ -74,6 +82,7 @@ class CampgroundsApp extends Component{
 
 function mapStateToProps(state) {
   return {
+    authenticated: state.auth.authenticated,
     campgrounds: state.campgrounds.campgrounds,
     searchText: state.searchText,
   };

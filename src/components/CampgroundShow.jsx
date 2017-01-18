@@ -22,6 +22,23 @@ class ShowCampground extends Component {
     browserHistory.push(`/campgrounds/edit/${this.props.params.id}`);
   }
 
+  showAuthorButtons() {
+    if (this.props.authenticated && this.props.signedinUser === this.props.campground.author) {
+      return (
+        <div className="marginalize">
+          <button className="button alert small float-left rounded" onClick={this.onDeleteClick.bind(this)}>
+              Delete
+            </button>
+          <div>
+            <button className="button warning small float-left rounded" onClick={this.onEditClick.bind(this)}>
+              Edit
+            </button>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     const { campground, weather } = this.props;
 
@@ -77,17 +94,8 @@ class ShowCampground extends Component {
                 <hr className="title-break"/>
               </div>
               <p className="description">{campground.description}</p>
-              <div className="marginalize">
-                <button className="button alert small float-left rounded" onClick={this.onDeleteClick.bind(this)}>
-                    Delete
-                  </button>
-                <div>
-                  <button className="button warning small float-left rounded" onClick={this.onEditClick.bind(this)}>
-                    Edit
-                  </button>
-                </div>
-              </div>
-              <p className="submitted"><em>Submitted by: User</em></p>
+              {this.showAuthorButtons()}
+              <p className="submitted"><em>Submitted by: {campground.author}</em></p>
             </div>
             <div className="comments-container padded">
               <p className="comments-icon"><i className="fa fa-comments-o" aria-hidden="true"></i> Comments</p>
@@ -109,7 +117,9 @@ class ShowCampground extends Component {
 
 function mapStateToProps(state) {
   return {
+    authenticated: state.auth.authenticated,
     campground: state.campground.campground,
+    signedinUser: state.signedinUser.username,
     weather: state.weather.weather
   };
 }
