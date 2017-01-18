@@ -31,8 +31,12 @@ class CampgroundsApp extends Component{
 
     if (!campgrounds) {
       return (
-        <div>
-          <p>Loading...</p>
+        <div className="row">
+          <div className="columns medium-6 large-4 small-centered">
+            <div className="content text-center">
+              <h3><i className="fa fa-cog fa-spin"></i>Loading...</h3>
+            </div>
+          </div>
         </div>
       );
     }

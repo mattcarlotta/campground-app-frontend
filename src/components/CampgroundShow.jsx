@@ -12,6 +12,7 @@ const ROOT_URL = 'http://openweathermap.org/img/w/';
 class ShowCampground extends Component {
   componentWillMount() {
     this.props.fetchCampground(this.props.params.id);
+    this.setState({ count: 5 });
   }
 
   onDeleteClick() {
@@ -39,6 +40,23 @@ class ShowCampground extends Component {
     }
   }
 
+  countdownTimer() {
+    if (this.props.errorMessage) {
+      this.timer = setInterval(() => {
+        let newCount = this.state.count - 1;
+        this.setState({
+          count: newCount >= 0 ? newCount : 0
+        });
+
+        if (newCount === 0) {
+          clearInterval(this.timer)
+          this.timer = undefined;
+          browserHistory.goBack();
+        }
+      }, 1000);
+    }
+  }
+
   render() {
     const { campground, weather } = this.props;
 
@@ -47,7 +65,9 @@ class ShowCampground extends Component {
         <div className="row">
           <div className="columns medium-6 large-4 small-centered">
             <div className="content text-center">
-              <h3>Loading...</h3>
+              <h3><i className="fa fa-cog fa-spin"></i>Loading...</h3>
+              <RenderAlert />
+              {this.countdownTimer()}
             </div>
           </div>
         </div>
@@ -118,6 +138,7 @@ class ShowCampground extends Component {
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error,
     campground: state.campground.campground,
     signedinUser: state.signedinUser.username,
     weather: state.weather.weather
