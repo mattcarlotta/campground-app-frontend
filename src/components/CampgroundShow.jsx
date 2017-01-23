@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
 
+import Comments from '../components/Comments';
 import RenderAlert from '../containers/RenderAlert';
 import ShowGoogleMap from '../containers/ShowGoogleMap';
 import * as actions from '../actions/Actions';
@@ -103,7 +104,7 @@ class ShowCampground extends Component {
               <p>{humidity}%</p>
             </div>
             <div className="index-link">
-              <Link onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</Link>
+              <button onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
             </div>
           </div>
           <div className="columns medium-8">
@@ -117,17 +118,7 @@ class ShowCampground extends Component {
               {this.showAuthorButtons()}
               <p className="submitted"><em>Submitted by: {campground.author}</em></p>
             </div>
-            <div className="comments-container padded">
-              <p className="comments-icon"><i className="fa fa-comments-o" aria-hidden="true"></i> Comments</p>
-              <form>
-                <input type="submit" value="Post" className="button button-primary offset-right"/>
-                <div className="input">
-                  <input type="text" className="new-comment-post expand" rows="1" name="new-comment" placeholder="Leave a comment" />
-                </div>
-              </form>
-              <hr />
-              <p className="user-comments">Add a Comment!</p>
-            </div>
+            <Comments comments={campground.comments} />
           </div>
         </div>
       </div>
