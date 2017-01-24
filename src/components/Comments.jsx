@@ -6,33 +6,63 @@ import RenderAlert from '../containers/RenderAlert';
 import * as actions from '../actions/Actions';
 
 class Comments extends Component {
+  constructor() {
+    super();
+
+    this.state = { fakeId: "1" };
+  }
+  compoentWillMount() {
+    const id = this.props.id;
+  }
   handleSubmit(e) {
     e.preventDefault();
     const author = this.props.signedinUser;
     const text = this.refs.newComment.value;
+    const id = this.props.id;
+    let comment = { text, author };
     this.refs.newComment.value = '';
-    this.props.comments.push({ text, author });
+    this.props.addComment({ comment, id });
+
+    let { fakeId } = this.state;
+    this.setState({
+      fakeId: fakeId + "1"
+    });
+    console.log(fakeId);
+    comment = { _id: fakeId, text, author};
+    console.log(comment);
+    this.props.comments.push(comment);
     this.renderComments();
     this.forceUpdate();
   }
 
   onEditClick() {
+    console.log(this.refs.commentId.value);
     console.log('Edited');
   }
 
   onDeleteClick() {
-    console.log('Deleted');
+    let comments = this.props.comments;
+    const id = this.props.id;
+    const commentId = this.refs.commentId.value;
+    this.props.deleteComment({ id, commentId });
+    for (let i=0; i<comments.length; i++) {
+      if (comments[i]._id === commentId) {
+        this.props.comments.splice(i, 1);
+      }
+    }
+    this.renderComments();
+    this.forceUpdate();
   }
 
 
-  showAuthorButtons() {
+  showAuthorButtons(commentId) {
     if (this.props.authenticated && this.props.signedinUser) {
       return (
         <div>
-          <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)}>
+          <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)} ref="commentId" value={commentId}>
           Edit
           </button>
-          <button className="button alert tiny rounded" onClick={this.onDeleteClick.bind(this)}>
+          <button className="button alert tiny rounded" onClick={this.onDeleteClick.bind(this)} ref="commentId" value={commentId}>
           Delete
           </button>
         </div>
@@ -43,6 +73,8 @@ class Comments extends Component {
   renderComments() {
     const { comments } = this.props;
 
+    console.log(comments);
+
     if (comments.length === 0) {
       return (
         <div className="marginalize">
@@ -52,12 +84,12 @@ class Comments extends Component {
     } else {
       return comments.map((comment) => {
         return (
-          <div className="comment-box">
+          <div key={comment._id} className="comment-box">
             <div className="bold">
               {comment.author}<div className="posted-at">1 minute ago</div>
             </div>
             <li className="user-comment black">{comment.text}</li>
-            {this.showAuthorButtons()}
+            {this.showAuthorButtons(comment._id)}
           </div>
         )
       });

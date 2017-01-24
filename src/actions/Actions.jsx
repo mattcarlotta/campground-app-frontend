@@ -86,7 +86,6 @@ export function fetchWeather(zip) {
 // Campground Create, Update, Delete
 //==========================================================================
 
-
 export function addNewCampground({ name, image, description, location, zip, author }) {
   return function(dispatch) {
     // Submit email/password to server
@@ -230,5 +229,41 @@ export function fetchMessage() {
         payload: response.data.message
       });
     });
+  }
+}
+
+//==========================================================================
+// Comment Create, Update, Delete
+//==========================================================================
+
+export function addComment({ comment, id }) {
+  return function(dispatch) {
+    // Submit email/password to server
+    axios.post(`${ROOT_URL}/campgrounds/${id}/comments/new`, { comment, id })
+    .then(response => {
+      dispatch(authSuccess(response.data.message));
+    })
+    .catch(({ response }) => dispatch(authError(response.data.err)));
+  }
+}
+
+export function editComment({ comment, id }) {
+  return function(dispatch) {
+    // Submit email/password to server
+    axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${comment.id}`, { comment })
+    .then(response => {
+      dispatch(authSuccess(response.data.updatedCampground));
+    })
+    .catch(({ response }) => dispatch(authError(response.data.err)));
+  };
+}
+
+export function deleteComment({ id, commentId }) {
+  return function(dispatch) {
+    axios.delete(`${ROOT_URL}/campgrounds/${id}/comments/delete/${commentId}`)
+    .then(response => {
+      dispatch(authSuccess(response.data.message));
+    })
+    .catch(({ response }) => dispatch(authError(response.data.err)));
   }
 }

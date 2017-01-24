@@ -116,7 +116,7 @@ class ShowCampground extends Component {
               {this.showAuthorButtons()}
               <p className="submitted"><em>Submitted by: {campground.author}</em></p>
             </div>
-            <Comments comments={campground.comments} />
+            <Comments comments={campground.comments} id={this.props.params.id} />
           </div>
         </div>
       </div>
