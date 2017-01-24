@@ -28,15 +28,13 @@ class Comments extends Component {
   showAuthorButtons() {
     if (this.props.authenticated && this.props.signedinUser) {
       return (
-        <div className="marginalize">
-          <button className="button alert small float-left rounded" onClick={this.onDeleteClick.bind(this)}>
-              Delete
-            </button>
-          <div>
-            <button className="button warning small float-left rounded" onClick={this.onEditClick.bind(this)}>
-              Edit
-            </button>
-          </div>
+        <div>
+          <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)}>
+          Edit
+          </button>
+          <button className="button alert tiny rounded" onClick={this.onDeleteClick.bind(this)}>
+          Delete
+          </button>
         </div>
       );
     }
@@ -47,16 +45,18 @@ class Comments extends Component {
 
     if (comments.length === 0) {
       return (
-        <div className="row">
+        <div className="marginalize">
           <p>Be the first to leave a comment!</p>
         </div>
       );
     } else {
       return comments.map((comment) => {
         return (
-          <div className="marginalize">
-            <li>{comment.text}</li>
-            <div>{comment.author}</div>
+          <div className="comment-box">
+            <div className="bold">
+              {comment.author}<div className="posted-at">1 minute ago</div>
+            </div>
+            <li className="user-comment black">{comment.text}</li>
             {this.showAuthorButtons()}
           </div>
         )

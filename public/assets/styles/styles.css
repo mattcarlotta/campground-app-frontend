@@ -3973,14 +3973,31 @@ li {
 .title-break {
   margin: 1.2rem 10rem; }
 
+.button.alert {
+  margin-left: 0.5rem; }
+
 .button.warning {
-  margin-left: 0.5rem;
   width: 60px;
   color: white; }
+
+.button.warning.tiny {
+  padding: 1px 5px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  width: 40px; }
+
+.button.alert.tiny {
+  padding: 1px 5px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  width: 60px; }
 
 .comments-container .comments-icon {
   color: #337ab7;
   font-weight: 600; }
+
+.comments-container .comment-box {
+  margin-bottom: 2rem; }
 
 .comments-container .new-comment-post {
   word-wrap: break-word;
@@ -3995,9 +4012,19 @@ li {
   border: 0;
   border-top: 1px solid #eee; }
 
+.posted-at {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #8a8a8a;
+  display: inline-flex;
+  margin-left: 1rem; }
+
+.user-comment {
+  margin: 0.5rem 0 0.2rem 0; }
+
 .input {
   overflow: hidden;
-  padding-right: .5em; }
+  padding-right: 0.5em; }
 
 .large-image-container {
   max-width: none;
@@ -4005,7 +4032,7 @@ li {
   margin-left: auto; }
 
 .campground-details {
-  padding: .75rem;
+  padding: 0.75rem;
   margin-bottom: 2rem;
   border: 1px solid #d4e3f1;
   background: #eee; }
@@ -4030,6 +4057,13 @@ li {
 
 .align-left {
   float: left !important; }
+
+.bold {
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased; }
+
+.black {
+  color: #0a0a0a; }
 
 .container {
   margin-top: 1.5rem; }

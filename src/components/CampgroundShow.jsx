@@ -28,14 +28,12 @@ class ShowCampground extends Component {
     if (this.props.authenticated && this.props.signedinUser === this.props.campground.author) {
       return (
         <div className="marginalize">
-          <button className="button alert small float-left rounded" onClick={this.onDeleteClick.bind(this)}>
-              Delete
-            </button>
-          <div>
-            <button className="button warning small float-left rounded" onClick={this.onEditClick.bind(this)}>
-              Edit
-            </button>
-          </div>
+          <button className="button warning small float-left rounded bold" onClick={this.onEditClick.bind(this)}>
+            Edit
+          </button>
+          <button className="button alert small float-left rounded bold" onClick={this.onDeleteClick.bind(this)}>
+          Delete
+          </button>
         </div>
       );
     }

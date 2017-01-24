@@ -2,6 +2,15 @@
   float: left !important;
 }
 
+.bold {
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+
+.black {
+  color: $black;
+}
+
 .container {
   margin-top: 1.5rem;
 }
