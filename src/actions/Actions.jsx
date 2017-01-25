@@ -173,7 +173,7 @@ export function signinUser({ username, password }) {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.userId);
       // save username to state
-      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data.user});
+      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
       // - Redirect to route '/feature'
       browserHistory.push('/campgrounds');
     })
@@ -197,7 +197,7 @@ export function signupUser({ email, username, password }) {
       dispatch({ type: AUTH_USER });
       dispatch(authSuccess(response.data.message));
       dispatch({ type: SIGNUP_MODAL });
-      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data.user});
+      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
       // - Save JWT token
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.userId);
