@@ -57,7 +57,6 @@ export function fetchCampgrounds(){
 }
 
 export function fetchCampground(id){
-  console.log('triggered');
   return function(dispatch) {
     axios.get(`${ROOT_URL}/campgrounds/${id}`)
     .then(response => {

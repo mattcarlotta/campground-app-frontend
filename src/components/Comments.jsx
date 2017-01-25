@@ -26,13 +26,12 @@ class Comments extends Component {
     let comments = this.props.comments;
     const id = this.props.id;
     let commentId = this.refs.commentId.value;
-    console.log(commentId);
     this.props.deleteComment({ id, commentId });
   }
 
   showAuthorButtons(commentId) {
     if (this.props.authenticated && this.props.signedinUser) {
-      // console.log(commentId);
+
       return (
         <div>
           <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)} ref="commentId" value={commentId}>
@@ -48,8 +47,6 @@ class Comments extends Component {
 
   renderComments() {
     const { comments } = this.props;
-
-    console.log(comments);
 
     if (comments.length === 0) {
       return (
