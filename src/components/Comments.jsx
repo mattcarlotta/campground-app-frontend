@@ -6,33 +6,15 @@ import RenderAlert from '../containers/RenderAlert';
 import * as actions from '../actions/Actions';
 
 class Comments extends Component {
-  constructor() {
-    super();
-
-    this.state = { fakeId: "1" };
-  }
-  compoentWillMount() {
-    const id = this.props.id;
-  }
   handleSubmit(e) {
     e.preventDefault();
+    const { dispatch } = this.props;
     const author = this.props.signedinUser;
     const text = this.refs.newComment.value;
     const id = this.props.id;
     let comment = { text, author };
     this.refs.newComment.value = '';
     this.props.addComment({ comment, id });
-
-    let { fakeId } = this.state;
-    this.setState({
-      fakeId: fakeId + "1"
-    });
-    console.log(fakeId);
-    comment = { _id: fakeId, text, author};
-    console.log(comment);
-    this.props.comments.push(comment);
-    this.renderComments();
-    this.forceUpdate();
   }
 
   onEditClick() {
@@ -43,20 +25,14 @@ class Comments extends Component {
   onDeleteClick() {
     let comments = this.props.comments;
     const id = this.props.id;
-    const commentId = this.refs.commentId.value;
+    let commentId = this.refs.commentId.value;
+    console.log(commentId);
     this.props.deleteComment({ id, commentId });
-    for (let i=0; i<comments.length; i++) {
-      if (comments[i]._id === commentId) {
-        this.props.comments.splice(i, 1);
-      }
-    }
-    this.renderComments();
-    this.forceUpdate();
   }
-
 
   showAuthorButtons(commentId) {
     if (this.props.authenticated && this.props.signedinUser) {
+      // console.log(commentId);
       return (
         <div>
           <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)} ref="commentId" value={commentId}>

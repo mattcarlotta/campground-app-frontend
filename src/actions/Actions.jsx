@@ -57,10 +57,24 @@ export function fetchCampgrounds(){
 }
 
 export function fetchCampground(id){
+  console.log('triggered');
   return function(dispatch) {
     axios.get(`${ROOT_URL}/campgrounds/${id}`)
     .then(response => {
       dispatch(fetchWeather(response.data.campground.zip));
+      dispatch({
+        type: FETCH_CAMPGROUND,
+        payload: response.data.campground
+      });
+    })
+    .catch(({ response }) => dispatch(authError(response.data.err)));
+  };
+}
+
+export function fetchCampgroundWithUpdatedComments(id){
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/campgrounds/${id}`)
+    .then(response => {
       dispatch({
         type: FETCH_CAMPGROUND,
         payload: response.data.campground
@@ -241,7 +255,8 @@ export function addComment({ comment, id }) {
     // Submit email/password to server
     axios.post(`${ROOT_URL}/campgrounds/${id}/comments/new`, { comment, id })
     .then(response => {
-      dispatch(authSuccess(response.data.message));
+      dispatch(fetchCampgroundWithUpdatedComments(id));
+      // dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   }
@@ -252,7 +267,7 @@ export function editComment({ comment, id }) {
     // Submit email/password to server
     axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${comment.id}`, { comment })
     .then(response => {
-      dispatch(authSuccess(response.data.updatedCampground));
+      // dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   };
@@ -260,9 +275,10 @@ export function editComment({ comment, id }) {
 
 export function deleteComment({ id, commentId }) {
   return function(dispatch) {
-    axios.delete(`${ROOT_URL}/campgrounds/${id}/comments/delete/${commentId}`)
+    axios.post(`${ROOT_URL}/campgrounds/${id}/comments/delete/${commentId}`, { id, commentId })
     .then(response => {
-      dispatch(authSuccess(response.data.message));
+      dispatch(fetchCampgroundWithUpdatedComments(id));
+      // dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   }
