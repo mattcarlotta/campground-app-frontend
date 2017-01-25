@@ -31,7 +31,7 @@ class NavBar extends Component {
         <div className="top-bar-right" key="0">
           <ul className="menu">
             <li>
-              <Link className="menu-signedin"><i className="fa fa-user" aria-hidden="true"></i> Welcome, {signedinUser}!</Link>
+              <Link to="/UserCP" className="menu-signedin"><i className="fa fa-user" aria-hidden="true"></i> Welcome, {signedinUser}!</Link>
             </li>
             <li>
               <Link onClick={this.props.signoutUser} key="0" activeClassName="active-link"><i className="fa fa-user-o" aria-hidden="true" /> Sign Out</Link>

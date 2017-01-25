@@ -7,7 +7,9 @@ import CampgroundsApp from './components/CampgroundsApp';
 import CampgroundForm from './components/CampgroundForm';
 import CampgroundShow from './components/CampgroundShow';
 import Landing from './components/Landing';
-var store = require('./store/configureStore').configure();
+import UserCP from './components/UserCP';
+
+const store = require('./store/configureStore').configure();
 
 export default (
   <Router history={browserHistory}>
@@ -18,6 +20,7 @@ export default (
       <Route path="campgrounds/new" component={CampgroundForm} />
       <Route path="campgrounds/edit/:id" component={CampgroundForm} />
       <Route path="campgrounds/:id" component={CampgroundShow} />
+      <Route path="userCP" component={UserCP} />
     </Route>
   </Router>
 );

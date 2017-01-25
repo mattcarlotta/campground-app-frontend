@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import moment from 'moment';
 
 import RenderAlert from '../containers/RenderAlert';
 import * as actions from '../actions/Actions';
@@ -8,13 +8,18 @@ import * as actions from '../actions/Actions';
 class Comments extends Component {
   handleSubmit(e) {
     e.preventDefault();
-    const { dispatch } = this.props;
-    const author = this.props.signedinUser;
-    const text = this.refs.newComment.value;
-    const id = this.props.id;
-    let comment = { text, author };
-    this.refs.newComment.value = '';
-    this.props.addComment({ comment, id });
+    if (this.refs.newComment.value.length > 0 ) {
+      const { dispatch } = this.props;
+      const author = this.props.signedinUser;
+      const text = this.refs.newComment.value;
+      const postedAt = moment().unix();
+      const id = this.props.id;
+      let comment = { text, postedAt, author };
+      this.refs.newComment.value = '';
+      this.props.addComment({ comment, id });
+    } else {
+      this.refs.newComment.focus();
+    }
   }
 
   onEditClick() {
@@ -23,7 +28,6 @@ class Comments extends Component {
   }
 
   onDeleteClick() {
-    let comments = this.props.comments;
     const id = this.props.id;
     let commentId = this.refs.commentId.value;
     this.props.deleteComment({ id, commentId });
@@ -47,7 +51,6 @@ class Comments extends Component {
 
   renderComments() {
     const { comments } = this.props;
-
     if (comments.length === 0) {
       return (
         <div className="marginalize">
@@ -58,11 +61,19 @@ class Comments extends Component {
       return comments.map((comment) => {
         return (
           <div key={comment._id} className="comment-box">
-            <div className="bold">
-              {comment.author}<div className="posted-at">1 minute ago</div>
+            <div className="row">
+              <div className="columns medium-2 avatar-padding">
+                <img src="/assets/images/male-avatar.png" className="avatar"/>
+              </div>
+              <div className="bold">
+                {comment.author}
+                <div className="posted-at">
+                  {moment.unix(comment.postedAt).format('MMM Do @ h:mm a')}
+                </div>
+              </div>
+              <li className="user-comment black">{comment.text}</li>
+              {this.showAuthorButtons(comment._id)}
             </div>
-            <li className="user-comment black">{comment.text}</li>
-            {this.showAuthorButtons(comment._id)}
           </div>
         )
       });

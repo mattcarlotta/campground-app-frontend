@@ -96,7 +96,7 @@ export function signupModalStateReducer(state=false, action) {
 export function setSignedinUserReducer(state={}, action) {
   switch (action.type) {
     case SET_SIGNEDIN_USER:
-      return { ...state, username: action.payload };
+      return { ...state, username: action.payload.user, joinedAt: action.payload.joinedAt, favorites: action.payload.favorites };
   }
   return state;
 }

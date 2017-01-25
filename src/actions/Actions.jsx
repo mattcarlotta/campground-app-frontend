@@ -144,7 +144,7 @@ export function fetchUser(id) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signedin`, { id: id })
     .then(response => {
-      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data.user});
+      dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
     })
     .catch(({ response }) => {
       dispatch(signoutUser());
