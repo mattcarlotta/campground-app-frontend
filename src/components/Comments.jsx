@@ -52,7 +52,7 @@ class Comments extends Component {
           <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)} ref="commentId" value={commentId}>
           Edit
           </button>
-          <button className="button alert tiny rounded" onClick={this.onDeleteClick.bind(this)} ref="commentId" value={commentId}>
+          <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this)} ref="commentId" value={commentId}>
           Delete
           </button>
         </div>

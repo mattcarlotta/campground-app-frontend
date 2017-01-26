@@ -31,7 +31,7 @@ class ShowCampground extends Component {
           <button className="button warning small float-left rounded bold" onClick={this.onEditClick.bind(this)}>
             Edit
           </button>
-          <button className="button alert small float-left rounded bold" onClick={this.onDeleteClick.bind(this)}>
+          <button className="button alert small float-left rounded bold margin-left" onClick={this.onDeleteClick.bind(this)}>
           Delete
           </button>
         </div>
