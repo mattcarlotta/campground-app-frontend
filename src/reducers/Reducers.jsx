@@ -4,6 +4,7 @@ import {
   AUTH_USER,
   CAMPGROUND_DELETE,
   CAMPGROUND_EDIT,
+  COMMENT_MODAL,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
@@ -87,6 +88,14 @@ export function signinModalStateReducer(state=false, action) {
 export function signupModalStateReducer(state=false, action) {
   switch(action.type) {
     case SIGNUP_MODAL:
+      return !state;
+    }
+  return state;
+}
+
+export function editCommentModalStateReducer(state=false, action) {
+  switch(action.type) {
+    case COMMENT_MODAL:
       return !state;
     }
   return state;

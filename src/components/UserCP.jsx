@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import moment from 'moment';
 
 import * as actions from '../actions/Actions';
@@ -53,6 +53,9 @@ class UserCP extends Component{
               </div>
             </div>
           </div>
+        </div>
+        <div className="index-link">
+          <button onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
         </div>
       </div>
     );

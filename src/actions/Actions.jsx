@@ -7,6 +7,7 @@ import {
   AUTH_USER,
   CAMPGROUND_DELETE,
   CAMPGROUND_EDIT,
+  COMMENT_MODAL,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
@@ -175,7 +176,7 @@ export function signinUser({ username, password }) {
       // save username to state
       dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
       // - Redirect to route '/feature'
-      browserHistory.push('/campgrounds');
+      // browserHistory.push('/campgrounds');
     })
     .catch(({ response }) => dispatch(authError(`Your username or password is incorrect! Please, try again.`)));
   }
@@ -261,11 +262,19 @@ export function addComment({ comment, id }) {
   }
 }
 
-export function editComment({ comment, id }) {
+export function editCommentModal() {
+  return {
+    type: COMMENT_MODAL
+  };
+}
+
+export function editComment({ commentId, comment, id }) {
   return function(dispatch) {
     // Submit email/password to server
-    axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${comment.id}`, { comment })
+    axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${id}`, { commentId, comment })
     .then(response => {
+      dispatch(fetchCampgroundWithUpdatedComments(id));
+      dispatch({ type: COMMENT_MODAL });
       // dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));

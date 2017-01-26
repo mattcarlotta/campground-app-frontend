@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import Comments from '../components/Comments';
 import RenderAlert from '../containers/RenderAlert';

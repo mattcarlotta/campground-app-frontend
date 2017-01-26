@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import RenderAlert from '../containers/RenderAlert';
+import RenderComments from '../containers/RenderComments';
 import * as actions from '../actions/Actions';
 
 class Comments extends Component {
@@ -27,66 +28,9 @@ class Comments extends Component {
       let comment = { text, postedAt, author };
       this.refs.newComment.value = '';
       this.props.addComment({ comment, id });
-      if (this.state.showOrHideClass === "hidden") this.toggleCommentsClass();
+      if (this.state.showOrHideComments === "hidden") {this.toggleCommentsClass();}
     } else {
       this.refs.newComment.focus();
-    }
-  }
-
-  onEditClick() {
-    console.log(this.refs.commentId.value);
-    console.log('Edited');
-  }
-
-  onDeleteClick(commentId) {
-    const id = this.props.id;
-    this.props.deleteComment({ id, commentId });
-  }
-
-  showAuthorButtons(commentId) {
-    if (this.props.authenticated && this.props.signedinUser) {
-
-      return (
-        <div>
-          <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)} ref="commentId" value={commentId}>
-          Edit
-          </button>
-          <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this,commentId)} ref="commentId" value={commentId}>
-          Delete
-          </button>
-        </div>
-      );
-    }
-  }
-
-  renderComments() {
-    const { comments } = this.props;
-    if (comments.length === 0) {
-      return (
-        <div className="marginalize">
-          <p>Be the first to leave a comment!</p>
-        </div>
-      );
-    } else {
-      return comments.map((comment) => {
-        return (
-          <div key={comment._id} className="comment-box">
-            <div className="row">
-              <div className="columns medium-2 avatar-padding">
-                <img src="/assets/images/male-avatar.png" className="avatar" />
-              </div>
-              <div className="bold">
-                {comment.author} | {comment._id}
-                <div className="posted-at">
-                  {moment.unix(comment.postedAt).format('MMM Do @ h:mm a')}
-                </div>
-              </div>
-              <li className="user-comment black">{comment.text}</li>
-              {this.showAuthorButtons(comment._id)}
-            </div>
-          </div>
-        )
-      });
     }
   }
 
@@ -105,7 +49,7 @@ class Comments extends Component {
         </form>
         <hr />
         <div className={showOrHideComments}>
-          {this.renderComments()}
+          <RenderComments comments={this.props.comments} id={this.props.id} />
         </div>
       </div>
     );

@@ -5,6 +5,7 @@ import { AUTH_USER } from '../actions/Types';
 
 import {
   authReducer,
+  editCommentModalStateReducer,
   fetchCampgroundsReducer,
   fetchCampgroundReducer,
   fetchWeatherReducer,
@@ -18,6 +19,7 @@ export let configure = (initialState = {}) => {
   let reducer = redux.combineReducers({
     form,
     auth: authReducer,
+    editCommentModalState: editCommentModalStateReducer,
     searchText: searchTextReducer,
     campground: fetchCampgroundReducer,
     campgrounds: fetchCampgroundsReducer,

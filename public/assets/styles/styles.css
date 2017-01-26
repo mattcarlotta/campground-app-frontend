@@ -4111,7 +4111,8 @@ li {
 .comments-container .comments-icon {
   color: #337ab7;
   font-weight: 600;
-  cursor: pointer; }
+  cursor: pointer;
+  width: 125px; }
 
 .comments-container .comment-box {
   margin-bottom: 2rem; }

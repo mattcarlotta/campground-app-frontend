@@ -3,6 +3,7 @@ export const AUTH_ERROR = 'auth_error';
 export const AUTH_SUCCESS = 'auth_sucess';
 export const CAMPGROUND_DELETE = 'campground_delete';
 export const CAMPGROUND_EDIT = 'campground_edit';
+export const COMMENT_MODAL = 'comment_modal';
 export const FETCH_CAMPGROUND = 'fetch_campground';
 export const FETCH_CAMPGROUNDS = 'fetch_campgrounds';
 export const FETCH_MESSAGE = 'fetch_message';

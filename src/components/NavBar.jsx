@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { IndexLink, Link } from 'react-router';
-import { browserHistory } from "react-router";
+import { IndexLink, Link, browserHistory } from 'react-router';
 
 import * as actions from '../actions/Actions';
 import SigninForm from './auth/Signin';
