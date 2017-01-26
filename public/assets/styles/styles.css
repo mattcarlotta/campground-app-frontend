@@ -4029,9 +4029,6 @@ li {
   border-radius: 50%;
   height: 70px; }
 
-.avatar-lg {
-  border-radius: 50%; }
-
 .align-left {
   float: left !important; }
 
@@ -4142,12 +4139,24 @@ li {
 .user-comment {
   margin: 0.5rem 0 0.2rem 0; }
 
+.avatar-lg {
+  border-radius: 50%;
+  margin-top: 4rem;
+  margin-left: .25rem; }
+
+.avatar-lg-padding {
+  padding: 0;
+  margin-right: 1rem; }
+
 .control-panel {
   background: #eee;
   border: 1px solid #d4e3f1;
   padding: 1.5rem;
   margin: 6rem 0;
   color: #235585; }
+
+.control-panel-title {
+  padding-left: 12rem; }
 
 .favorite-details {
   padding: 0.75rem;
@@ -4156,7 +4165,3 @@ li {
   background: #eee; }
   .favorite-details h3, .favorite-details h4, .favorite-details p {
     color: #337ab7; }
-
-.avatar-lg-padding {
-  padding: 0;
-  margin-right: 1rem; }

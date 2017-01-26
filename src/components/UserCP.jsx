@@ -36,12 +36,14 @@ class UserCP extends Component{
       <div className="row">
         <div className="text-center">
           <div className="row">
+            <div className="columns medium-2 avatar-lg-padding">
+              <img src="/assets/images/male-avatar.png" className="avatar-lg" />
+            </div>
             <div className="control-panel rounded text-left">
-              <div className="columns medium-2 avatar-lg-padding">
-                <img src="/assets/images/male-avatar.png" className="avatar-lg" />
+              <div className="control-panel-title">
+                <h3>Welcome, {signedinUser}!</h3>
+                <p> You've been a member since {moment.unix(this.props.joinedAt).format('MMM Do, YYYY')}!</p>
               </div>
-              <h3>Welcome, {signedinUser}!</h3>
-              <p> You've been a member since {moment.unix(this.props.joinedAt).format('MMM Do, YYYY')}!</p>
             </div>
             <div className="columns medium-4 text-center float-left">
               <div className="container favorite-details rounded">

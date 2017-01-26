@@ -1,9 +1,24 @@
+.avatar-lg {
+  border-radius: 50%;
+  margin-top: 4rem;
+  margin-left: .25rem;
+}
+
+.avatar-lg-padding {
+  padding: 0;
+  margin-right: 1rem;
+}
+
 .control-panel {
   background: $light-grey;
   border: 1px solid $coolgrey;
   padding: 1.5rem;
   margin: 6rem 0;
   color: $jumbtron-text-color;
+}
+
+.control-panel-title {
+  padding-left: 12rem;
 }
 
 .favorite-details {
@@ -15,9 +30,4 @@
   h3, h4, p {
     color: $blue;
   }
-}
-
-.avatar-lg-padding {
-  padding: 0;
-  margin-right: 1rem;
 }
