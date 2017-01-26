@@ -38,9 +38,8 @@ class Comments extends Component {
     console.log('Edited');
   }
 
-  onDeleteClick() {
+  onDeleteClick(commentId) {
     const id = this.props.id;
-    let commentId = this.refs.commentId.value;
     this.props.deleteComment({ id, commentId });
   }
 
@@ -52,7 +51,7 @@ class Comments extends Component {
           <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this)} ref="commentId" value={commentId}>
           Edit
           </button>
-          <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this)} ref="commentId" value={commentId}>
+          <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this,commentId)} ref="commentId" value={commentId}>
           Delete
           </button>
         </div>
@@ -77,7 +76,7 @@ class Comments extends Component {
                 <img src="/assets/images/male-avatar.png" className="avatar" />
               </div>
               <div className="bold">
-                {comment.author}
+                {comment.author} | {comment._id}
                 <div className="posted-at">
                   {moment.unix(comment.postedAt).format('MMM Do @ h:mm a')}
                 </div>
