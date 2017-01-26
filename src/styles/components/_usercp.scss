@@ -1,0 +1,23 @@
+.control-panel {
+  background: $light-grey;
+  border: 1px solid $coolgrey;
+  padding: 1.5rem;
+  margin: 6rem 0;
+  color: $jumbtron-text-color;
+}
+
+.favorite-details {
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+  border: 1px solid $coolgrey;
+  background: $light-grey;
+
+  h3, h4, p {
+    color: $blue;
+  }
+}
+
+.avatar-lg-padding {
+  padding: 0;
+  margin-right: 1rem;
+}

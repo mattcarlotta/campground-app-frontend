@@ -3,3 +3,47 @@
   padding: 0;
   margin-right: 1rem;
 }
+
+.comments-container {
+
+  .comments-icon {
+    color: $blue;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  // .user-comments {
+  //   font-size: .9rem;
+  // }
+
+  .comment-box {
+    margin-bottom: 2rem;
+  }
+
+  .new-comment-post {
+    word-wrap: break-word;
+    border-radius: 2px;
+    line-height: 1.5;
+    margin: 0;
+    background-color: transparent;
+    resize: none;
+  }
+
+  hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+}
+
+.posted-at {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: $dark-gray;
+  display: inline-flex;
+  margin-left: 1rem;
+}
+
+.user-comment {
+  margin: 0.5rem 0 0.2rem 0
+}

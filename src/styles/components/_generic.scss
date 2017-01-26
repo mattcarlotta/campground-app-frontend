@@ -3,6 +3,10 @@
   height: 70px;
 }
 
+.avatar-lg {
+  border-radius: 50%;
+}
+
 .align-left {
   float: left !important;
 }
@@ -16,6 +20,7 @@
   color: $black;
 }
 
+
 .container {
   margin-top: 1.5rem;
 }
@@ -26,6 +31,10 @@
 
 .expand {
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 .img-rounded {
@@ -56,6 +65,10 @@
   margin-bottom: 1.5rem;
 }
 
+.no-padding {
+  padding: 0;
+}
+
 .padded {
   padding-top: 1rem;
 }
@@ -66,6 +79,10 @@
 
 .small-icon {
   font-size: .8rem;
+}
+
+.show {
+  display: block;
 }
 
 .spaced {

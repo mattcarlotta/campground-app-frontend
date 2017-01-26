@@ -3992,36 +3992,6 @@ li {
   line-height: 1.5;
   width: 60px; }
 
-.comments-container .comments-icon {
-  color: #337ab7;
-  font-weight: 600; }
-
-.comments-container .comment-box {
-  margin-bottom: 2rem; }
-
-.comments-container .new-comment-post {
-  word-wrap: break-word;
-  border-radius: 2px;
-  line-height: 1.5;
-  margin: 0;
-  background-color: transparent;
-  resize: none; }
-
-.comments-container hr {
-  margin: 2rem 0;
-  border: 0;
-  border-top: 1px solid #eee; }
-
-.posted-at {
-  font-size: 0.75rem;
-  font-weight: normal;
-  color: #8a8a8a;
-  display: inline-flex;
-  margin-left: 1rem; }
-
-.user-comment {
-  margin: 0.5rem 0 0.2rem 0; }
-
 .input {
   overflow: hidden;
   padding-right: 0.5em; }
@@ -4059,6 +4029,9 @@ li {
   border-radius: 50%;
   height: 70px; }
 
+.avatar-lg {
+  border-radius: 50%; }
+
 .align-left {
   float: left !important; }
 
@@ -4077,6 +4050,9 @@ li {
 
 .expand {
   width: 100%; }
+
+.hidden {
+  display: none; }
 
 .img-rounded {
   border-radius: 5px;
@@ -4100,6 +4076,9 @@ li {
   margin: 0 .7rem;
   margin-bottom: 1.5rem; }
 
+.no-padding {
+  padding: 0; }
+
 .padded {
   padding-top: 1rem; }
 
@@ -4108,6 +4087,9 @@ li {
 
 .small-icon {
   font-size: .8rem; }
+
+.show {
+  display: block; }
 
 .spaced {
   margin: .7rem 0; }
@@ -4126,5 +4108,55 @@ li {
 
 .avatar-padding {
   width: 70px;
+  padding: 0;
+  margin-right: 1rem; }
+
+.comments-container .comments-icon {
+  color: #337ab7;
+  font-weight: 600;
+  cursor: pointer; }
+
+.comments-container .comment-box {
+  margin-bottom: 2rem; }
+
+.comments-container .new-comment-post {
+  word-wrap: break-word;
+  border-radius: 2px;
+  line-height: 1.5;
+  margin: 0;
+  background-color: transparent;
+  resize: none; }
+
+.comments-container hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #eee; }
+
+.posted-at {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #8a8a8a;
+  display: inline-flex;
+  margin-left: 1rem; }
+
+.user-comment {
+  margin: 0.5rem 0 0.2rem 0; }
+
+.control-panel {
+  background: #eee;
+  border: 1px solid #d4e3f1;
+  padding: 1.5rem;
+  margin: 6rem 0;
+  color: #235585; }
+
+.favorite-details {
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+  border: 1px solid #d4e3f1;
+  background: #eee; }
+  .favorite-details h3, .favorite-details h4, .favorite-details p {
+    color: #337ab7; }
+
+.avatar-lg-padding {
   padding: 0;
   margin-right: 1rem; }

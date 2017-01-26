@@ -6,10 +6,20 @@ import RenderAlert from '../containers/RenderAlert';
 import * as actions from '../actions/Actions';
 
 class Comments extends Component {
+  constructor(props) {
+    super();
+
+    this.state = ({ showOrHideComments: 'hidden'});
+  }
+
+  toggleCommentsClass() {
+    let commentBoxClass = (this.state.showOrHideComments === "hidden") ? "show" : "hidden";
+    this.setState({ showOrHideComments : commentBoxClass });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.refs.newComment.value.length > 0 ) {
-      const { dispatch } = this.props;
       const author = this.props.signedinUser;
       const text = this.refs.newComment.value;
       const postedAt = moment().unix();
@@ -17,6 +27,7 @@ class Comments extends Component {
       let comment = { text, postedAt, author };
       this.refs.newComment.value = '';
       this.props.addComment({ comment, id });
+      if (this.state.showOrHideClass === "hidden") this.toggleCommentsClass();
     } else {
       this.refs.newComment.focus();
     }
@@ -63,7 +74,7 @@ class Comments extends Component {
           <div key={comment._id} className="comment-box">
             <div className="row">
               <div className="columns medium-2 avatar-padding">
-                <img src="/assets/images/male-avatar.png" className="avatar"/>
+                <img src="/assets/images/male-avatar.png" className="avatar" />
               </div>
               <div className="bold">
                 {comment.author}
@@ -81,10 +92,12 @@ class Comments extends Component {
   }
 
   render() {
+    const { comments } = this.props;
+    const { showOrHideComments } = this.state;
 
     return (
       <div className="comments-container padded">
-        <p className="comments-icon"><i className="fa fa-comments-o" aria-hidden="true"></i> Comments</p>
+        <p onClick={this.toggleCommentsClass.bind(this)} className="comments-icon"><i className="fa fa-comments-o" aria-hidden="true"></i> Comments ({comments.length})</p>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <button className="button button-primary offset-right">Post</button>
           <div className="input">
@@ -92,7 +105,9 @@ class Comments extends Component {
           </div>
         </form>
         <hr />
-        {this.renderComments()}
+        <div className={showOrHideComments}>
+          {this.renderComments()}
+        </div>
       </div>
     );
   }
