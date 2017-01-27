@@ -31,7 +31,7 @@ class RenderAlert extends Component {
 
   render() {
     return (
-      <div className="padded">
+      <div className="absolute">
         {this.displayMessage()}
       </div>
     );

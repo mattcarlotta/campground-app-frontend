@@ -1,10 +1,15 @@
-.avatar {
-  border-radius: 50%;
-  height: 70px;
+.absolute {
+  position: absolute;
+  width: 90%;
 }
 
 .align-left {
   float: left !important;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 70px;
 }
 
 .bold {
@@ -31,6 +36,7 @@
 .custom-button {
   border: 1px solid transparent;
   font-size: 0.9rem;
+  margin-top: .5rem;
   padding: 0.85em 1em;
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
