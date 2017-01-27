@@ -44,7 +44,7 @@ class RenderComments extends Component {
     if (updated) {
       return (
         <span>
-         <span>{moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span> <span className="updated-icon">Updated</span>
+         <span>{moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span> <span className="updated-icon">*Updated*</span>
         </span>
       );
     } else {
