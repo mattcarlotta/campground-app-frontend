@@ -3982,15 +3982,14 @@ li {
 
 .button.warning.tiny {
   padding: 1px 5px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.5;
-  width: 40px; }
+  width: 30px; }
 
 .button.alert.tiny {
   padding: 1px 5px;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  width: 60px; }
+  font-size: 0.9rem;
+  line-height: 1.5; }
 
 .input {
   overflow: hidden;
@@ -4082,8 +4081,8 @@ li {
 .rounded {
   border-radius: 5px; }
 
-.small-icon {
-  font-size: .8rem; }
+.semi-bold {
+  font-weight: 500; }
 
 .show {
   display: block; }
@@ -4091,10 +4090,16 @@ li {
 .spaced {
   margin: .7rem 0; }
 
+.small-icon {
+  font-size: .8rem; }
+
 .stylized, .button:focus {
   background-color: transparent;
   outline: none;
   color: #337ab7; }
+
+.super-tiny {
+  font-size: .1rem; }
 
 .title {
   color: #337ab7; }
@@ -4108,6 +4113,11 @@ li {
   padding: 0;
   margin-right: 1rem; }
 
+.campground-author {
+  background-color: #2199e8;
+  color: #fefefe;
+  padding: 0 .2rem; }
+
 .comments-container .comments-icon {
   color: #337ab7;
   font-weight: 600;
@@ -4115,6 +4125,7 @@ li {
   width: 125px; }
 
 .comments-container .comment-box {
+  font-size: .85rem;
   margin-bottom: 2rem; }
 
 .comments-container .new-comment-post {
@@ -4141,11 +4152,10 @@ li {
   margin: 0.5rem 0 0.2rem 0; }
 
 .updated-icon {
-  color: #fefefe;
+  color: #337ab7;
   font-size: .5rem;
-  background-color: #337ab7;
-  padding: .1rem;
-  border-radius: 5px; }
+  background-color: #99d7ff;
+  padding: .2rem; }
 
 .avatar-lg {
   border-radius: 50%;

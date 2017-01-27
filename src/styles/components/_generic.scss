@@ -73,8 +73,8 @@
   border-radius: 5px;
 }
 
-.small-icon {
-  font-size: .8rem;
+.semi-bold {
+  font-weight: 500;
 }
 
 .show {
@@ -85,10 +85,18 @@
   margin: .7rem 0;
 }
 
+.small-icon {
+  font-size: .8rem;
+}
+
 .stylized, .button:focus {
   background-color: transparent;
   outline: none;
   color: $blue;
+}
+
+.super-tiny {
+  font-size: .1rem;
 }
 
 .title {

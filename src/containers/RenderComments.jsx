@@ -20,7 +20,7 @@ class RenderComments extends Component {
       return (
         <div>
           <button onClick={this.props.editCommentModal} className="button warning tiny rounded" ref="commentId" value={commentId}>
-            Edit
+            <i className="fa fa-pencil" aria-hidden="true"></i>
           </button>
           <Modal
             isOpen={this.props.editCommentModalState}
@@ -33,9 +33,25 @@ class RenderComments extends Component {
             <p onClick={this.props.editCommentModal} className="text-center cursor">close</p>
           </Modal>
           <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this,commentId)} ref="commentId" value={commentId}>
-          Delete
+          <i className="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>
+      );
+    }
+  }
+
+  showAuthorStamp(commentAuthor) {
+    if (commentAuthor === this.props.campground.author) {
+      return (
+        <span>
+          <span className="campground-author rounded">{commentAuthor} <i className="fa fa-check-circle-o" aria-hidden="true"></i></span>
+        </span>
+      );
+    } else {
+      return (
+        <span>
+          <span>{commentAuthor}</span>
+        </span>
       );
     }
   }
@@ -44,7 +60,7 @@ class RenderComments extends Component {
     if (updated) {
       return (
         <span>
-         <span>{moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span> <span className="updated-icon">*Updated*</span>
+         <span>{moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span> <span className="updated-icon rounded">Updated</span>
         </span>
       );
     } else {
@@ -73,8 +89,8 @@ class RenderComments extends Component {
               <div className="columns medium-2 avatar-padding">
                 <img src="/assets/images/male-avatar.png" className="avatar" />
               </div>
-              <div className="bold">
-                {comment.author}
+              <div className="semi-bold">
+                {this.showAuthorStamp(comment.author)}
                 <div className="posted-at">
                   {this.showCommentStamp(comment.updated, comment.updatedAt, comment.postedAt)}
                 </div>
