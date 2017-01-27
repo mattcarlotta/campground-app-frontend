@@ -45,8 +45,9 @@ class EditComment extends Component {
   handleFormSubmit(formProps) {
     const { id, commentId, author } = this.props;
     const text = formProps.commentText;
-    const postedAt = moment().unix();
-    const comment = { text, postedAt, author };
+    const updated = true;
+    const updatedAt = moment().unix();
+    const comment = { text, updatedAt, updated };
     this.props.editComment({ commentId, comment, id });
   }
 

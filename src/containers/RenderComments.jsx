@@ -40,6 +40,21 @@ class RenderComments extends Component {
     }
   }
 
+  showCommentStamp(updated, updatedAt, postedAt) {
+    if (updated) {
+      return (
+        <span>
+         <span>{moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span> <span className="updated-icon">Updated</span>
+        </span>
+      );
+    } else {
+      return (
+      <span>
+        {moment.unix(postedAt).format('MMM Do YYYY @ h:mm a')}
+      </span>
+    );
+    }
+  }
 
   renderComments() {
     const { comments, commentText } = this.props;
@@ -61,7 +76,7 @@ class RenderComments extends Component {
               <div className="bold">
                 {comment.author}
                 <div className="posted-at">
-                  {moment.unix(comment.postedAt).format('MMM Do @ h:mm a')}
+                  {this.showCommentStamp(comment.updated, comment.updatedAt, comment.postedAt)}
                 </div>
               </div>
               <li className="user-comment black">
@@ -94,5 +109,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(RenderComments);
-
-// <EditComment id={this.props.id} commentId={commentId} commentText={commentText} />
