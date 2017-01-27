@@ -271,11 +271,11 @@ export function editCommentModal() {
 export function editComment({ commentId, comment, id }) {
   return function(dispatch) {
     // Submit email/password to server
+    console.log(commentId, comment, id);
     axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${id}`, { commentId, comment })
     .then(response => {
       dispatch(fetchCampgroundWithUpdatedComments(id));
-      dispatch({ type: COMMENT_MODAL });
-      // dispatch(authSuccess(response.data.message));
+      dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   };

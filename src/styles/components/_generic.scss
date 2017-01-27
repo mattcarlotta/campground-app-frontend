@@ -16,9 +16,23 @@
   color: $black;
 }
 
+.button-blue {
+  background-color: $button-blue;
+}
+
+.button-dark {
+  background-color: $button-dark;
+}
 
 .container {
   margin-top: 1.5rem;
+}
+
+.custom-button {
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  padding: 0.85em 1em;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .cursor {
@@ -27,6 +41,10 @@
 
 .expand {
   width: 100%;
+}
+
+.golden-icon {
+  color: gold;
 }
 
 .hidden {
@@ -101,6 +119,10 @@
 
 .title {
   color: $blue
+}
+
+.white-font {
+  color: $white;
 }
 
 #uppercased {

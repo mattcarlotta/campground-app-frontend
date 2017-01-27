@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
 import Comments from '../components/Comments';
+import Favorites from '../containers/Favorites';
 import RenderAlert from '../containers/RenderAlert';
 import ShowGoogleMap from '../containers/ShowGoogleMap';
 import * as actions from '../actions/Actions';
@@ -79,6 +80,9 @@ class ShowCampground extends Component {
 
     return (
       <div>
+        <div className="float-left">
+          <Favorites />
+        </div>
         <div className="row">
           <RenderAlert />
           <div className="columns medium-4 text-center">

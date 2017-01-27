@@ -3970,6 +3970,10 @@ li {
     margin-right: 1rem;
     text-align: right; }
 
+.favorites-container {
+  margin-left: 2rem;
+  margin-top: 1rem; }
+
 .title-break {
   margin: 1.2rem 10rem; }
 
@@ -4038,14 +4042,29 @@ li {
 .black {
   color: #0a0a0a; }
 
+.button-blue {
+  background-color: #1779ba; }
+
+.button-dark {
+  background-color: #14679e; }
+
 .container {
   margin-top: 1.5rem; }
+
+.custom-button {
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  padding: 0.85em 1em;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out; }
 
 .cursor {
   cursor: pointer; }
 
 .expand {
   width: 100%; }
+
+.golden-icon {
+  color: gold; }
 
 .hidden {
   display: none; }
@@ -4103,6 +4122,9 @@ li {
 
 .title {
   color: #337ab7; }
+
+.white-font {
+  color: #fefefe; }
 
 #uppercased {
   text-transform: uppercase;

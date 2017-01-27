@@ -7,7 +7,7 @@ import RenderComments from '../containers/RenderComments';
 import * as actions from '../actions/Actions';
 
 class Comments extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = ({ showOrHideComments: 'hidden'});
