@@ -56,6 +56,14 @@ class ShowCampground extends Component {
     }
   }
 
+  renderFavoritesIcon() {
+    if (this.props.authenticated && this.props.signedinUser) {
+      return (
+        <Favorites />
+      )
+    }
+  }
+
   render() {
     const { campground, weather } = this.props;
 
@@ -111,7 +119,7 @@ class ShowCampground extends Component {
             <div className="container campground rounded">
               <img className="large-image-container expand rounded" src={campground.image} />
               <p className="title text-center">{campground.name} - {campground.location}
-              <Favorites />
+              {this.renderFavoritesIcon()}
               </p>
               <div>
                 <hr className="title-break"/>
