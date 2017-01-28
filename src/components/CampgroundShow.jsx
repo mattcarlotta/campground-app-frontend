@@ -80,9 +80,6 @@ class ShowCampground extends Component {
 
     return (
       <div>
-        <div className="float-left">
-          <Favorites />
-        </div>
         <div className="row">
           <RenderAlert />
           <div className="columns medium-4 text-center">
@@ -105,13 +102,17 @@ class ShowCampground extends Component {
               <p>{humidity}%</p>
             </div>
             <div className="index-link">
-              <button onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+              <button onClick={browserHistory.goBack} className="button primary rounded float-left">
+                <i className="fa fa-arrow-left" aria-hidden="true"></i> Back
+              </button>
             </div>
           </div>
           <div className="columns medium-8">
             <div className="container campground rounded">
               <img className="large-image-container expand rounded" src={campground.image} />
-              <p className="title text-center">{campground.name} - {campground.location}</p>
+              <p className="title text-center">{campground.name} - {campground.location}
+              <Favorites />
+              </p>
               <div>
                 <hr className="title-break"/>
               </div>

@@ -7,30 +7,29 @@ import RenderAlert from '../containers/RenderAlert';
 import RenderComments from '../containers/RenderComments';
 import * as actions from '../actions/Actions';
 
-class Favorites extends Component {
-  constructor() {
-    super();
+const unfavorite = "custom-button button-background-red button-font-white circle fa fa-heart-o cursor";
 
-    this.state = ({ favoriteClass: 'fa fa-heart-o' })
-  }
+const favorite = "custom-button button-font-white button-background-red circle fa fa-heart cursor";
+
+class Favorites extends Component {
   onMouseEnterHandler() {
-    ReactDOM.findDOMNode(this.refs.icon).className = "custom-button rounded button-dark fa fa-heart golden-icon cursor";
+    ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
 
   onMouseLeaveHandler() {
-    ReactDOM.findDOMNode(this.refs.icon).className = "custom-button rounded button-blue white-font fa fa-heart cursor";
+    ReactDOM.findDOMNode(this.refs.icon).className = `${unfavorite}`;
   }
 
   onClickHandler(e) {
     e.preventDefault();
     console.log('triggered');
-    ReactDOM.findDOMNode(this.refs.icon).className = "custom-button rounded button-dark fa fa-heart golden-icon cursor";
+    ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
 
   favoriteCampground() {
     return (
       <span>
-        <button className="custom-button rounded button-blue white-font fa fa-heart-o cursor" aria-hidden="true"
+        <button className={unfavorite} aria-hidden="true"
           onMouseEnter={this.onMouseEnterHandler.bind(this)}
           onMouseLeave={this.onMouseLeaveHandler.bind(this)}
           onClick={this.onClickHandler.bind(this)} ref="icon">
@@ -43,9 +42,9 @@ class Favorites extends Component {
     const { comments } = this.props;
 
     return (
-      <div className="favorites-container">
+      <span className="favorites-container">
         {this.favoriteCampground()}
-      </div>
+      </span>
     );
   }
 }

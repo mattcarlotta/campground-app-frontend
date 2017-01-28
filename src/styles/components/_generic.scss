@@ -21,12 +21,26 @@
   color: $black;
 }
 
-.button-blue {
-  background-color: $button-blue;
+.button-background-red {
+  background-color: red;
 }
 
-.button-dark {
-  background-color: $button-dark;
+.button-background-transparent {
+  background-color: none;
+}
+
+.button-font-red {
+  color: red;
+  font-size: .75rem;
+}
+
+.button-font-white {
+  color: $white;
+  font-size: 1rem;
+}
+
+.circle {
+  border-radius: 50%;
 }
 
 .container {
@@ -35,9 +49,11 @@
 
 .custom-button {
   border: 1px solid transparent;
-  font-size: 0.9rem;
-  margin-top: .5rem;
-  padding: 0.85em 1em;
+  padding: .25rem;
+  margin-right: 1rem;
+  float: right;
+  outline: none;
+  // transform: translate(40%, -15%);
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
@@ -47,10 +63,6 @@
 
 .expand {
   width: 100%;
-}
-
-.golden-icon {
-  color: gold;
 }
 
 .hidden {
@@ -125,10 +137,6 @@
 
 .title {
   color: $blue
-}
-
-.white-font {
-  color: $white;
 }
 
 #uppercased {
