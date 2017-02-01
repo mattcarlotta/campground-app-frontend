@@ -1,10 +1,12 @@
 import {
+  // ADD_FAVORITE,
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_USER,
   CAMPGROUND_DELETE,
   CAMPGROUND_EDIT,
   COMMENT_MODAL,
+  // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
@@ -14,6 +16,7 @@ import {
   SET_SIGNEDIN_USER,
   SIGNIN_MODAL,
   SIGNUP_MODAL,
+  UPDATE_FAVORITES,
   UNAUTH_USER
 } from '../actions/Types';
 
@@ -42,6 +45,14 @@ export function authReducer(state = {}, action) {
   }
   return state;
 }
+
+// export function updateFavoriteReducer(state= [], action) {
+//   switch(action.type) {
+//     case UPDATE_FAVORITES:
+//       return { ...state, state.campground.favorites: action.payload }
+//   }
+//   return state;
+// }
 
 export function fetchCampgroundReducer(state=[], action) {
   switch (action.type) {
@@ -100,7 +111,6 @@ export function editCommentModalStateReducer(state=false, action) {
     }
   return state;
 }
-
 
 export function setSignedinUserReducer(state={}, action) {
   switch (action.type) {

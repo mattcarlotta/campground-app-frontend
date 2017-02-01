@@ -2,12 +2,14 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import {
+  // ADD_FAVORITE,
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_USER,
   CAMPGROUND_DELETE,
   CAMPGROUND_EDIT,
   COMMENT_MODAL,
+  // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
@@ -17,6 +19,7 @@ import {
   SET_SIGNEDIN_USER,
   SIGNIN_MODAL,
   SIGNUP_MODAL,
+  UPDATE_FAVORITES,
   UNAUTH_USER
 } from './Types';
 
@@ -95,6 +98,23 @@ export function fetchWeather(zip) {
     });
   };
 }
+
+//==========================================================================
+// Favorites Create, Delete
+//==========================================================================
+
+export function addFavorite({ userId, campgroundId, campgroundTitle }) {
+  return function(dispatch) {
+    // Submit email/password to server
+    axios.post(`${ROOT_URL}/favorites/create`, { userId, campgroundId, campgroundTitle })
+    .then(response => {
+      dispatch(authSuccess(response.data.message));
+      // browserHistory.push('/campgrounds');
+    })
+      .catch(({ response }) => dispatch(authError(response.data.err)));
+  };
+}
+
 
 //==========================================================================
 // Campground Create, Update, Delete

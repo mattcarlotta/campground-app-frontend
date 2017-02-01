@@ -7,9 +7,9 @@ import RenderAlert from '../containers/RenderAlert';
 import RenderComments from '../containers/RenderComments';
 import * as actions from '../actions/Actions';
 
-const unfavorite = "custom-button button-background-red button-font-white circle fa fa-heart-o cursor";
+const unfavorite = "favorites-button favorites-background-transparent favorites-button-font-red circle fa fa-heart-o cursor";
 
-const favorite = "custom-button button-font-white button-background-red circle fa fa-heart cursor";
+const favorite = "favorites-button favorites-button-font-red favorites-button-background-transparent circle fa fa-heart cursor";
 
 class Favorites extends Component {
   onMouseEnterHandler() {
@@ -22,8 +22,15 @@ class Favorites extends Component {
 
   onClickHandler(e) {
     e.preventDefault();
-    console.log('triggered');
-    ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
+    const userId = localStorage.getItem('userId');
+    const { _id:campgroundId, name, location } = this.props.campground;
+    const campgroundTitle = `${name} - ${location}`;
+    // console.log('campgroundTitle', campgroundTitle);
+    // console.log('campgroundId', campgroundId);
+    // console.log('userId', userId);
+    // console.log(campgroundId);
+    this.props.addFavorite({ userId, campgroundId, campgroundTitle });
+    // ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
 
   favoriteCampground() {

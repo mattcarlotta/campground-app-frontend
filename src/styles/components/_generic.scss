@@ -21,40 +21,12 @@
   color: $black;
 }
 
-.button-background-red {
-  background-color: red;
-}
-
-.button-background-transparent {
-  background-color: none;
-}
-
-.button-font-red {
-  color: red;
-  font-size: .75rem;
-}
-
-.button-font-white {
-  color: $white;
-  font-size: 1rem;
-}
-
 .circle {
   border-radius: 50%;
 }
 
 .container {
   margin-top: 1.5rem;
-}
-
-.custom-button {
-  border: 1px solid transparent;
-  padding: .25rem;
-  margin-right: 1rem;
-  float: right;
-  outline: none;
-  // transform: translate(40%, -15%);
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
 .cursor {

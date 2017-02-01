@@ -3995,6 +3995,21 @@ li {
   overflow: hidden;
   padding-right: 0.5em; }
 
+.favorites-button-background-transparent {
+  background-color: none; }
+
+.favorites-button-font-red {
+  color: red;
+  font-size: 1.25rem; }
+
+.favorites-button {
+  border: 1px solid transparent;
+  padding: .25rem;
+  margin-right: .5rem;
+  float: right;
+  outline: none;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out; }
+
 .large-image-container {
   max-width: none;
   margin-right: auto;
@@ -4042,33 +4057,11 @@ li {
 .black {
   color: #0a0a0a; }
 
-.button-background-red {
-  background-color: red; }
-
-.button-background-transparent {
-  background-color: none; }
-
-.button-font-red {
-  color: red;
-  font-size: .75rem; }
-
-.button-font-white {
-  color: #fefefe;
-  font-size: 1rem; }
-
 .circle {
   border-radius: 50%; }
 
 .container {
   margin-top: 1.5rem; }
-
-.custom-button {
-  border: 1px solid transparent;
-  padding: .25rem;
-  margin-right: 1rem;
-  float: right;
-  outline: none;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out; }
 
 .cursor {
   cursor: pointer; }

@@ -56,6 +56,25 @@
   padding-right: 0.5em;
 }
 
+.favorites-button-background-transparent {
+  background-color: none;
+}
+
+.favorites-button-font-red {
+  color: red;
+  font-size: 1.25rem;
+}
+
+.favorites-button {
+  border: 1px solid transparent;
+  padding: .25rem;
+  margin-right: .5rem;
+  float: right;
+  outline: none;
+  // transform: translate(40%, -15%);
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+
 .large-image-container {
   max-width: none;
   margin-right: auto;
