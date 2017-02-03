@@ -16,15 +16,19 @@ class UserCP extends Component{
       );
     } else {
       console.log(this.props.favorites);
-      // return favorites.map((favorite) => {
-      //   return (
-      //     <div key={favorite.campground._id} className="">
-      //       <div className="row">
-      //         <Link to={`/campgrounds/${favorite.campground._id}` className="button primary expanded styled rounded">{favorite.campground._id} - {location}</Link>
-      //       </div>
-      //     </div>
+      return this.props.favorites.map((favorite) => {
+        return (
+          <div key={favorite.campground._id} className="">
+            <div className="row">
+            <Link to={`/campgrounds/${favorite.campground._id}`} className="button primary styled rounded">
+            {favorite.campground.name} - {favorite.campground.location}
+            </Link>
+            </div>
+          </div>
+          );
+        });
+      }
     }
-  }
 
   render() {
     const { signedinUser } = this.props;

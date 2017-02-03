@@ -104,10 +104,10 @@ export function fetchWeather(zip) {
 // Favorites Create, Delete
 //==========================================================================
 
-export function addFavorite({ userId, campgroundId, campgroundTitle }) {
+export function addFavorite({ userId, campgroundId }) {
   return function(dispatch) {
     // Submit email/password to server
-    axios.post(`${ROOT_URL}/favorites/create`, { userId, campgroundId, campgroundTitle })
+    axios.post(`${ROOT_URL}/favorites/create`, { userId, campgroundId })
     .then(response => {
       dispatch(authSuccess(response.data.message));
       // browserHistory.push('/campgrounds');

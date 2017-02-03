@@ -23,13 +23,12 @@ class Favorites extends Component {
   onClickHandler(e) {
     e.preventDefault();
     const userId = localStorage.getItem('userId');
-    const { _id:campgroundId, name, location } = this.props.campground;
-    const campgroundTitle = `${name} - ${location}`;
+    const { _id:campgroundId } = this.props.campground;
     // console.log('campgroundTitle', campgroundTitle);
     // console.log('campgroundId', campgroundId);
     // console.log('userId', userId);
     // console.log(campgroundId);
-    this.props.addFavorite({ userId, campgroundId, campgroundTitle });
+    this.props.addFavorite({ userId, campgroundId });
     // ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
 
