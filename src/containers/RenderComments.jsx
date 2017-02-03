@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { IndexLink, Link, browserHistory } from 'react-router';
 import moment from 'moment';
 
-import SigninForm from '../components/auth/Signin';
-import EditComment from '../containers/EditComment';
 import * as actions from '../actions/Actions';
 
 class RenderComments extends Component {
@@ -15,24 +13,20 @@ class RenderComments extends Component {
     this.props.deleteComment({ id, commentId });
   }
 
+  onEditClick(commentId, commentText, author) {
+    console.log(commentId, commentText, author);
+    // this.props.setComment()
+    // browserHistory.push(`/campgrounds/edit/${this.props.params.id}`);
+  }
+
   showAuthorButtons(commentId, commentText, author) {
     if (this.props.authenticated && this.props.signedinUser && this.props.signedinUser === author) {
       return (
         <div>
-          <button onClick={this.props.editCommentModal} className="button warning tiny rounded" ref="commentId" value={commentId}>
+          <button className="button warning tiny rounded" onClick={this.onEditClick.bind(this,commentId, commentText, author)}>
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </button>
-          <Modal
-            isOpen={this.props.editCommentModalState}
-            onRequestClose={this.props.editCommentModal}
-            className="modal-content signin-modal-size rounded title"
-            overlayClassName="modal-overlay"
-            contentLabel="Edit Comment Modal"
-          >
-            <EditComment id={this.props.id} author={author} commentId={commentId} commentText={commentText} />
-            <p onClick={this.props.editCommentModal} className="text-center cursor">close</p>
-          </Modal>
-          <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this,commentId)} ref="commentId" value={commentId}>
+          <button className="button alert tiny rounded margin-left" onClick={this.onDeleteClick.bind(this,commentId)}>
           <i className="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>

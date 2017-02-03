@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import RenderAlert from './RenderAlert';
+import RenderAlert from '../containers/RenderAlert';
 import * as actions from '../actions/Actions';
 
 const validate = values => {
@@ -72,6 +72,13 @@ class EditComment extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    author: state.commentText.author,
+    id: state.commentText.id,
+    text: state.commentText.text,
+  };
+}
 
 EditComment = reduxForm({
   form: 'edit_comment',
@@ -79,4 +86,4 @@ EditComment = reduxForm({
   fields: ['commentText']
 })(EditComment);
 
-export default connect(null, actions)(EditComment);
+export default connect(mapStateToProps, actions)(EditComment);
