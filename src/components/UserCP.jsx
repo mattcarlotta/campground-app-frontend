@@ -14,6 +14,15 @@ class UserCP extends Component{
           <em>Uh oh!</em> You don't have any favorites!
         </div>
       );
+    } else {
+      console.log(this.props.favorites);
+      // return favorites.map((favorite) => {
+      //   return (
+      //     <div key={favorite.campground._id} className="">
+      //       <div className="row">
+      //         <Link to={`/campgrounds/${favorite.campground._id}` className="button primary expanded styled rounded">{favorite.campground._id} - {location}</Link>
+      //       </div>
+      //     </div>
     }
   }
 

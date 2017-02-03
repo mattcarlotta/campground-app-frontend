@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
+import { reset } from 'redux-form';
 
 import {
   // ADD_FAVORITE,
@@ -291,9 +292,9 @@ export function editCommentModal() {
 export function editComment({ commentId, comment, id }) {
   return function(dispatch) {
     // Submit email/password to server
-    console.log(commentId, comment, id);
     axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${id}`, { commentId, comment })
     .then(response => {
+      dispatch(reset('edit_comment'));
       dispatch(fetchCampgroundWithUpdatedComments(id));
       dispatch(editCommentModal());
       dispatch(authSuccess(response.data.message));
