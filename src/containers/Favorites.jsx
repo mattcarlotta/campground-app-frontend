@@ -11,7 +11,23 @@ const unfavorite = "favorites-button favorites-background-transparent favorites-
 
 const favorite = "favorites-button favorites-button-font-red favorites-button-background-transparent circle fa fa-heart cursor";
 
+const favorited = "favorites-button favorites-button-font-red favorites-button-background-transparent circle fa fa-heart";
+
 class Favorites extends Component {
+  componentWillMount() {
+    const { favorites, id } = this.props;
+
+   for(let i = 0; i < favorites.length; i++) {
+    if(favorites[i].campground._id === id) {
+       this.state = {
+        favorited: 'true',
+        id: favorites[i].campground._id
+      }
+       break;
+     }
+      this.state = { favorited: null }
+    }
+  }
   onMouseEnterHandler() {
     ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
@@ -24,28 +40,36 @@ class Favorites extends Component {
     e.preventDefault();
     const userId = localStorage.getItem('userId');
     const { _id:campgroundId } = this.props.campground;
-    // console.log('campgroundTitle', campgroundTitle);
-    // console.log('campgroundId', campgroundId);
-    // console.log('userId', userId);
-    // console.log(campgroundId);
     this.props.addFavorite({ userId, campgroundId });
     // ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
 
   favoriteCampground() {
-    return (
-      <span>
-        <button className={unfavorite} aria-hidden="true"
-          onMouseEnter={this.onMouseEnterHandler.bind(this)}
-          onMouseLeave={this.onMouseLeaveHandler.bind(this)}
-          onClick={this.onClickHandler.bind(this)} ref="icon">
-        </button>
-      </span>
-    );
-  }
+    const { favorited } = this.state;
+
+    if(favorited) {
+      return (
+        <span>
+          <i className="favorites-button favorites-button-font-red favorites-button-background-transparent circle fa fa-heart" aria-hidden="true">
+          </i>
+        </span>
+      );
+    } else if (!favorited) {
+     return (
+       <span>
+         <button className={unfavorite} aria-hidden="true"
+           onMouseEnter={this.onMouseEnterHandler.bind(this)}
+           onMouseLeave={this.onMouseLeaveHandler.bind(this)}
+           onClick={this.onClickHandler.bind(this)} ref="icon">
+         </button>
+       </span>
+     );
+   }
+ }
 
   render() {
-    const { comments } = this.props;
+    const { comments, favorites } = this.props;
+
 
     return (
       <span className="favorites-container">

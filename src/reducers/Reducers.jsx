@@ -5,13 +5,12 @@ import {
   AUTH_USER,
   CAMPGROUND_DELETE,
   CAMPGROUND_EDIT,
-  COMMENT_MODAL,
   // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
   FETCH_WEATHER,
-  RESET_SEARCH_TEXT,
+  SET_COMMENT_TEXT,
   SET_SEARCH_TEXT,
   SET_SIGNEDIN_USER,
   SIGNIN_MODAL,
@@ -46,13 +45,13 @@ export function authReducer(state = {}, action) {
   return state;
 }
 
-// export function updateFavoriteReducer(state= [], action) {
-//   switch(action.type) {
-//     case UPDATE_FAVORITES:
-//       return { ...state, state.campground.favorites: action.payload }
-//   }
-//   return state;
-// }
+export function commentTextReducer(state='', action) {
+  switch (action.type) {
+    case SET_COMMENT_TEXT:
+      return { ...state, ...action.payload };;
+  }
+  return state;
+}
 
 export function fetchCampgroundReducer(state=[], action) {
   switch (action.type) {
@@ -82,8 +81,6 @@ export function searchTextReducer(state = '', action) {
   switch (action.type) {
     case SET_SEARCH_TEXT:
       return action.payload;
-    case RESET_SEARCH_TEXT:
-      return action.payload;
   };
   return state;
 };
@@ -99,14 +96,6 @@ export function signinModalStateReducer(state=false, action) {
 export function signupModalStateReducer(state=false, action) {
   switch(action.type) {
     case SIGNUP_MODAL:
-      return !state;
-    }
-  return state;
-}
-
-export function editCommentModalStateReducer(state=false, action) {
-  switch(action.type) {
-    case COMMENT_MODAL:
       return !state;
     }
   return state;

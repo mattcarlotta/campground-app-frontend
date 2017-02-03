@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { IndexLink, Link, browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import moment from 'moment';
 
 import * as actions from '../actions/Actions';
 
 class RenderComments extends Component {
   onDeleteClick(commentId) {
-    const id = this.props.id;
-    this.props.deleteComment({ id, commentId });
+    const campgroundId = this.props.id;
+    this.props.deleteComment({ campgroundId, commentId });
   }
 
   onEditClick(commentId, commentText, author) {
-    console.log(commentId, commentText, author);
-    // this.props.setComment()
-    // browserHistory.push(`/campgrounds/edit/${this.props.params.id}`);
+    const campgroundId = this.props.id;
+    const comment = { campgroundId, commentId, commentText, author };
+    // console.log(comment);
+    this.props.setCommentText(comment)
+    browserHistory.push(`/campgrounds/${campgroundId}/comment/edit/${commentId}`);
   }
 
   showAuthorButtons(commentId, commentText, author) {

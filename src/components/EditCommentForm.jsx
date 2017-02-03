@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { browserHistory, Link } from 'react-router';
 import moment from 'moment';
 
 import RenderAlert from '../containers/RenderAlert';
@@ -38,34 +39,39 @@ class EditComment extends Component {
   }
 
   handleInitialize() {
-    const initData = {"commentText": this.props.commentText }
+    const initData = { "commentText": this.props.commentText }
     this.props.initialize(initData);
   }
 
   handleFormSubmit(formProps) {
-    const { id, commentId, author } = this.props;
+    const { campgroundId, commentId, author } = this.props;
     const text = formProps.commentText;
     const updated = true;
     const updatedAt = moment().unix();
     const comment = { text, updatedAt, updated };
-    this.props.editComment({ commentId, comment, id });
+    this.props.editComment({ commentId, comment, campgroundId });
   }
 
   render() {
-    const { handleSubmit, pristine, reset, submitting, fields: { commentText }, id, commentId } = this.props;
+    const { handleSubmit, pristine, reset, submitting, fields: { commentText }} = this.props;
 
     return (
-      <div className="padded">
-        <div className="container form-details rounded">
-          <h1 className="title text-center">Edit Comment</h1>
-          <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            <Field name="commentText" type="text" component={renderField} />
-            <div>
-              <button type="submit" className="button primary rounded expanded" disabled={submitting}>Submit</button>
-              <button type="button" className="button alert rounded expanded" disabled={ pristine || submitting } onClick={ reset }>Clear Values</button>
-            </div>
-          </form>
-          <RenderAlert />
+      <div className="row padded">
+        <div className="small-centered large-4">
+          <div className="container form-details rounded">
+            <h1 className="title text-center">Edit Comment</h1>
+            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+              <Field name="commentText" type="text" component={renderField} />
+              <div>
+                <button type="submit" className="button primary rounded expanded" disabled={submitting}>Submit</button>
+                <button type="button" className="button alert rounded expanded" disabled={ pristine || submitting } onClick={ reset }>Clear Values</button>
+              </div>
+            </form>
+            <RenderAlert />
+          </div>
+        </div>
+        <div className="index-link">
+          <Link onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</Link>
         </div>
       </div>
     );
@@ -74,9 +80,10 @@ class EditComment extends Component {
 
 function mapStateToProps(state) {
   return {
-    author: state.commentText.author,
-    id: state.commentText.id,
-    text: state.commentText.text,
+    author: state.comment.author,
+    campgroundId: state.comment.campgroundId,
+    commentId: state.comment.commentId,
+    commentText: state.comment.commentText,
   };
 }
 

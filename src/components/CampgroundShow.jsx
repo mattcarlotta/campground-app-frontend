@@ -59,7 +59,7 @@ class ShowCampground extends Component {
   renderFavoritesIcon() {
     if (this.props.authenticated && this.props.signedinUser) {
       return (
-        <Favorites />
+        <Favorites id={this.props.params.id} />
       )
     }
   }

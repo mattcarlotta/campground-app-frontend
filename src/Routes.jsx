@@ -21,7 +21,7 @@ export default (
       <Route path="campgrounds/new" component={CampgroundForm} />
       <Route path="campgrounds/edit/:id" component={CampgroundForm} />
       <Route path="campgrounds/:id" component={CampgroundShow} />
-      <Route path="comment/edit/:id" component={EditCommentForm} />
+      <Route path="campgrounds/:id/comment/edit/:id" component={EditCommentForm} />
       <Route path="userCP" component={UserCP} />
     </Route>
   </Router>

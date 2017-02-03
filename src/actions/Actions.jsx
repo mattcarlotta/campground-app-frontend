@@ -9,13 +9,12 @@ import {
   AUTH_USER,
   CAMPGROUND_DELETE,
   CAMPGROUND_EDIT,
-  COMMENT_MODAL,
   // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
   FETCH_WEATHER,
-  RESET_SEARCH_TEXT,
+  SET_COMMENT_TEXT,
   SET_SEARCH_TEXT,
   SET_SIGNEDIN_USER,
   SIGNIN_MODAL,
@@ -39,12 +38,6 @@ export function setSearchText(searchText) {
   };
 };
 
-export function resetSearchText(searchText) {
-  return {
-    type: RESET_SEARCH_TEXT,
-    payload: searchText
-  }
-}
 
 //==========================================================================
 // Campground Read
@@ -283,31 +276,32 @@ export function addComment({ comment, id }) {
   }
 }
 
-export function editCommentModal() {
+export function setCommentText(comment) {
   return {
-    type: COMMENT_MODAL
-  };
+    type: SET_COMMENT_TEXT,
+    payload: comment
+  }
 }
 
-export function editComment({ commentId, comment, id }) {
+export function editComment({ commentId, comment, campgroundId }) {
   return function(dispatch) {
     // Submit email/password to server
-    axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${id}`, { commentId, comment })
+    axios.put(`${ROOT_URL}/campgrounds/${campgroundId}/comment/edit/${commentId}`, { commentId, comment })
     .then(response => {
-      dispatch(reset('edit_comment'));
-      dispatch(fetchCampgroundWithUpdatedComments(id));
-      dispatch(editCommentModal());
+      dispatch(setCommentText(''));
+      dispatch(fetchCampgroundWithUpdatedComments(campgroundId));
       dispatch(authSuccess(response.data.message));
+      browserHistory.goBack();
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   };
 }
 
-export function deleteComment({ id, commentId }) {
+export function deleteComment({ campgroundId, commentId }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/campgrounds/${id}/comments/delete/${commentId}`, { id, commentId })
+    axios.post(`${ROOT_URL}/campgrounds/${campgroundId}/comment/delete/${commentId}`, { campgroundId, commentId })
     .then(response => {
-      dispatch(fetchCampgroundWithUpdatedComments(id));
+      dispatch(fetchCampgroundWithUpdatedComments(campgroundId));
       // dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));

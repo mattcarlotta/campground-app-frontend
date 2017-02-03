@@ -13,7 +13,7 @@ class CampgroundsApp extends Component{
   }
 
   componentWillUnmount() {
-    this.props.resetSearchText('');
+    this.props.setSearchText('');
   }
 
   showAddCampgroundButton() {
