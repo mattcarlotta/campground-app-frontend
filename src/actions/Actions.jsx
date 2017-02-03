@@ -163,7 +163,7 @@ export function deleteCampground(id) {
 //==========================================================================
 export function fetchUser(id) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/signedin`, { id: id })
+    axios.post(`${ROOT_URL}/signedin`, { userId: id })
     .then(response => {
       dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
     })
@@ -295,6 +295,7 @@ export function editComment({ commentId, comment, id }) {
     axios.put(`${ROOT_URL}/campgrounds/${id}/comments/edit/${id}`, { commentId, comment })
     .then(response => {
       dispatch(fetchCampgroundWithUpdatedComments(id));
+      dispatch(editCommentModal());
       dispatch(authSuccess(response.data.message));
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));

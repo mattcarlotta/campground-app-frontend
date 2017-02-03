@@ -57,19 +57,15 @@ class RenderComments extends Component {
   }
 
   showCommentStamp(updated, updatedAt, postedAt) {
+    let showUpdatedTimestamp = '';
     if (updated) {
-      return (
-        <span>
-         <span>{moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span> <span className="updated-icon rounded">Updated</span>
-        </span>
-      );
-    } else {
+         showUpdatedTimestamp = <span className="updated-icon rounded">Updated: {moment.unix(updatedAt).format('MMM Do YYYY @ h:mm a')}</span>;
+    }
       return (
       <span>
-        {moment.unix(postedAt).format('MMM Do YYYY @ h:mm a')}
+        {moment.unix(postedAt).format('MMM Do YYYY @ h:mm a')} {showUpdatedTimestamp}
       </span>
     );
-    }
   }
 
   renderComments() {
