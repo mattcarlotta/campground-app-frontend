@@ -17,17 +17,15 @@ class Favorites extends Component {
   componentWillMount() {
     const { favorites, id } = this.props;
 
-   for(let i = 0; i < favorites.length; i++) {
-    if(favorites[i].campground._id === id) {
-       this.state = {
-        favorited: 'true',
-        id: favorites[i].campground._id
-      }
-       break;
+    for(let i = 0; i < favorites.length; i++) {
+      if(favorites[i].campground._id === id) {
+        this.state = { favorited: 'true' }
+      break;
      }
       this.state = { favorited: null }
     }
   }
+
   onMouseEnterHandler() {
     ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
@@ -68,9 +66,6 @@ class Favorites extends Component {
  }
 
   render() {
-    const { comments, favorites } = this.props;
-
-
     return (
       <span className="favorites-container">
         {this.favoriteCampground()}

@@ -15,7 +15,6 @@ class UserCP extends Component{
         </div>
       );
     } else {
-      console.log(this.props.favorites);
       return this.props.favorites.map((favorite) => {
         return (
           <div key={favorite.campground._id} className="">
