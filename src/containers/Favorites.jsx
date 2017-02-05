@@ -16,12 +16,15 @@ const favorited = "favorites-button favorites-button-font-red favorites-button-b
 class Favorites extends Component {
   componentWillMount() {
     const { favorites, id } = this.props;
-
-    for(let i = 0; i < favorites.length; i++) {
-      if(favorites[i].campground._id === id) {
-        this.state = { favorited: 'true' }
-      break;
-     }
+    if (favorites.length > 0) {
+      for(let i = 0; i < favorites.length; i++) {
+        if(favorites[i].campground._id === id) {
+          this.state = { favorited: 'true' }
+        break;
+       }
+        this.state = { favorited: null }
+      }
+    } else {
       this.state = { favorited: null }
     }
   }
