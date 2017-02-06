@@ -15,6 +15,20 @@ const favorited = "favorites-button favorites-button-font-red favorites-button-b
 
 class Favorites extends Component {
   componentWillMount() {
+    this.favoriteButton();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.favorites !== prevProps.favorites) {
+      this.setState({ favorited: 'true' });
+    }
+  }
+
+  favoriteButton() {
     const { favorites, id } = this.props;
     if (favorites.length > 0) {
       for(let i = 0; i < favorites.length; i++) {
@@ -42,7 +56,6 @@ class Favorites extends Component {
     const userId = localStorage.getItem('userId');
     const { _id:campgroundId } = this.props.campground;
     this.props.addFavorite({ userId, campgroundId });
-    // ReactDOM.findDOMNode(this.refs.icon).className = `${favorite}`;
   }
 
   favoriteCampground() {
@@ -78,7 +91,6 @@ class Favorites extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     authenticated: state.auth.authenticated,
     campground: state.campground.campground,

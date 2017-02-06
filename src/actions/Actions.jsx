@@ -104,7 +104,6 @@ export function addFavorite({ userId, campgroundId }) {
     .then(response => {
       dispatch(authSuccess(response.data.message));
       dispatch(fetchFavorites({ userId }));
-      console.log('triggered');
       // browserHistory.push('/campgrounds');
     })
       .catch(({ response }) => dispatch(authError(response.data.err)));
@@ -115,11 +114,7 @@ export function fetchFavorites({ userId }) {
   return function (dispatch) {
     axios.get(`${ROOT_URL}/favorites/${userId}`)
     .then(response => {
-      console.log(response);
       dispatch({ type: ADD_FAVORITE, payload: response.data.favorites});
-      // dispatch({
-      //   type: FETCH_WEATHER,
-      //   payload: response.data
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   }
