@@ -1,5 +1,5 @@
 import {
-  // ADD_FAVORITE,
+  ADD_FAVORITE,
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_USER,
@@ -105,6 +105,8 @@ export function setSignedinUserReducer(state={}, action) {
   switch (action.type) {
     case SET_SIGNEDIN_USER:
       return { ...state, username: action.payload.user, joinedAt: action.payload.joinedAt, favorites: action.payload.favorites };
+    case ADD_FAVORITE:
+      return { ...state, favorites: action.payload }
   }
   return state;
 }

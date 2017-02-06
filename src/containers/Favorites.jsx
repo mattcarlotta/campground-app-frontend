@@ -78,6 +78,7 @@ class Favorites extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     authenticated: state.auth.authenticated,
     campground: state.campground.campground,
