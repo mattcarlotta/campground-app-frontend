@@ -267,7 +267,7 @@ export function fetchMessage() {
 export function addComment({ comment, id }) {
   return function(dispatch) {
     // Submit email/password to server
-    axios.post(`${ROOT_URL}/campgrounds/${id}/comments/new`, { comment, id })
+    axios.post(`${ROOT_URL}/campgrounds/${id}/comment/new`, { comment, id })
     .then(response => {
       dispatch(fetchCampgroundWithUpdatedComments(id));
       // dispatch(authSuccess(response.data.message));
