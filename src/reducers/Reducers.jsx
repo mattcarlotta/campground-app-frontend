@@ -7,6 +7,7 @@ import {
   CAMPGROUND_EDIT,
   // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
+  FETCH_CAMPGROUND_COMMENTS,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
   FETCH_WEATHER,
@@ -56,7 +57,12 @@ export function commentTextReducer(state='', action) {
 export function fetchCampgroundReducer(state=[], action) {
   switch (action.type) {
     case FETCH_CAMPGROUND:
-      return { ...state, campground: action.payload };
+      return { ...state, ...action.payload };
+    case FETCH_CAMPGROUND_COMMENTS:
+      return {
+        ...state,
+        comments: action.payload
+      }
     }
   return state;
 }

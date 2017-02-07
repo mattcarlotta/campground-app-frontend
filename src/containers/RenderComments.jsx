@@ -7,6 +7,16 @@ import moment from 'moment';
 import * as actions from '../actions/Actions';
 
 class RenderComments extends Component {
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return true;
+  // }
+  //
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.campground !== prevState.campground) {
+  //     console.log('triggered');
+  //   }
+  // }
+
   onDeleteClick(commentId) {
     const campgroundId = this.props.id;
     this.props.deleteComment({ campgroundId, commentId });
@@ -109,7 +119,7 @@ class RenderComments extends Component {
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
-    campground: state.campground.campground,
+    campground: state.campground,
     editCommentModalState: state.editCommentModalState,
     signedinUser: state.signedinUser.username,
   };

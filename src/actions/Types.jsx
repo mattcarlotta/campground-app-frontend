@@ -6,6 +6,7 @@ export const CAMPGROUND_DELETE = 'campground_delete';
 export const CAMPGROUND_EDIT = 'campground_edit';
 // export const DELETE_FAVORITE = 'delete_favorite';
 export const FETCH_CAMPGROUND = 'fetch_campground';
+export const FETCH_CAMPGROUND_COMMENTS = 'fetch_campground_comments';
 export const FETCH_CAMPGROUNDS = 'fetch_campgrounds';
 export const FETCH_MESSAGE = 'fetch_message';
 export const FETCH_WEATHER = 'fetch_weather';

@@ -20,7 +20,7 @@ class Comments extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.refs.newComment.value.length > 0 ) {
+    if (this.refs.newComment.value.length > 0 && this.props.authenticated && this.props.signedinUser) {
       const author = this.props.signedinUser;
       const text = this.refs.newComment.value;
       const postedAt = moment().unix();
@@ -30,6 +30,7 @@ class Comments extends Component {
       this.props.addComment({ comment, id });
       if (this.state.showOrHideComments === "hidden") {this.toggleCommentsClass();}
     } else {
+      this.props.authError("You must be logged in to do that!")
       this.refs.newComment.focus();
     }
   }
@@ -59,7 +60,7 @@ class Comments extends Component {
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
-    campground: state.campground.campground,
+    campground: state.campground,
     signedinUser: state.signedinUser.username
   };
 }

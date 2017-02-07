@@ -140,7 +140,7 @@ function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
     errorMessage: state.auth.error,
-    campground: state.campground.campground,
+    campground: state.campground,
     signedinUser: state.signedinUser.username,
     weather: state.weather.weather
   };

@@ -113,7 +113,7 @@ class CampgroundForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    campground: state.campground.campground,
+    campground: state.campground,
     signedinUser: state.signedinUser.username,
   };
 }

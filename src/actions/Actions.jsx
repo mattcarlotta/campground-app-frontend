@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
-import { reset } from 'redux-form';
+import browserHistory from 'react-router';
 
 import {
   ADD_FAVORITE,
@@ -11,6 +10,7 @@ import {
   CAMPGROUND_EDIT,
   // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
+  FETCH_CAMPGROUND_COMMENTS,
   FETCH_CAMPGROUNDS,
   FETCH_MESSAGE,
   FETCH_WEATHER,
@@ -73,8 +73,8 @@ export function fetchCampgroundWithUpdatedComments(id){
     axios.get(`${ROOT_URL}/campgrounds/${id}`)
     .then(response => {
       dispatch({
-        type: FETCH_CAMPGROUND,
-        payload: response.data.campground
+        type: FETCH_CAMPGROUND_COMMENTS,
+        payload: response.data.campground.comments
       });
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));

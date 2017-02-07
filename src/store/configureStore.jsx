@@ -31,7 +31,7 @@ export let configure = (initialState = {}) => {
 
   let store = redux.createStore(reducer, initialState, redux.compose(
     redux.applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    // window.devToolsExtension ? window.devToolsExtension() : f => f
   ));
 
   const token = localStorage.getItem('token');
