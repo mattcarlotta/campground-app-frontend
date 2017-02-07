@@ -7,6 +7,12 @@ import * as actions from '../actions/Actions';
 
 class UserCP extends Component{
 
+  onDeleteClick(favoriteId) {
+    const userId = localStorage.getItem('userId');
+    console.log(favoriteId, userId);
+    this.props.deleteFavorite({ userId, favoriteId });
+  }
+
   renderFavorites() {
     if (this.props.favorites.length === 0) {
       return (
@@ -16,12 +22,18 @@ class UserCP extends Component{
       );
     } else {
       return this.props.favorites.map((favorite) => {
+        console.log(favorite);
         return (
           <div key={favorite.campground._id} className="">
             <div className="row">
-            <Link to={`/campgrounds/${favorite.campground._id}`} className="button primary styled rounded">
-            {favorite.campground.name} - {favorite.campground.location}
-            </Link>
+              <Link to={`/campgrounds/${favorite.campground._id}`} className="button primary styled rounded">
+              {favorite.campground.name} - {favorite.campground.location}
+              </Link>
+              <span>
+                <button className="button alert tiny rounded container margin-left" onClick={this.onDeleteClick.bind(this,favorite._id)}>
+                <i className="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </span>
             </div>
           </div>
           );
