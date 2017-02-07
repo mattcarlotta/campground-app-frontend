@@ -7,16 +7,6 @@ import moment from 'moment';
 import * as actions from '../actions/Actions';
 
 class RenderComments extends Component {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return true;
-  // }
-  //
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.campground !== prevState.campground) {
-  //     console.log('triggered');
-  //   }
-  // }
-
   onDeleteClick(commentId) {
     const campgroundId = this.props.id;
     this.props.deleteComment({ campgroundId, commentId });
@@ -25,7 +15,6 @@ class RenderComments extends Component {
   onEditClick(commentId, commentText, author) {
     const campgroundId = this.props.id;
     const comment = { campgroundId, commentId, commentText, author };
-    // console.log(comment);
     this.props.setCommentText(comment)
     browserHistory.push(`/campgrounds/${campgroundId}/comment/edit/${commentId}`);
   }

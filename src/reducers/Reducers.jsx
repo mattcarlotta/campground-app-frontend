@@ -78,7 +78,7 @@ export function fetchCampgroundsReducer(state={}, action) {
 export function fetchWeatherReducer(state={}, action) {
   switch (action.type) {
     case FETCH_WEATHER:
-      return { ...state, weather: action.payload };
+      return { ...state, ...action.payload };
   }
   return state;
 }

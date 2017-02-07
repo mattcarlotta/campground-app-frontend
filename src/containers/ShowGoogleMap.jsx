@@ -59,7 +59,7 @@ class ShowGoogleMap extends Component {
 }
 
 function mapStateToProps(state) {
-  return { weather: state.weather.weather };
+  return { weather: state.weather };
 }
 
 export default connect(mapStateToProps)(ShowGoogleMap);

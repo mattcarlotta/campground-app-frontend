@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
@@ -67,7 +68,7 @@ class ShowCampground extends Component {
   render() {
     const { campground, weather } = this.props;
 
-    if (!campground || !weather) {
+    if (_.isEmpty(campground) || _.isEmpty(weather)) {
       return (
         <div className="row">
           <div className="columns medium-6 large-4 small-centered">
@@ -142,7 +143,7 @@ function mapStateToProps(state) {
     errorMessage: state.auth.error,
     campground: state.campground,
     signedinUser: state.signedinUser.username,
-    weather: state.weather.weather
+    weather: state.weather
   };
 }
 

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
@@ -28,8 +29,7 @@ class CampgroundsApp extends Component{
 
   renderCampgrounds() {
     const { campgrounds, searchText } = this.props;
-
-    if (!campgrounds) {
+    if (_.isEmpty(campgrounds)) {
       return (
         <div className="row">
           <div className="columns medium-6 large-4 small-centered">
