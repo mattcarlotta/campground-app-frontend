@@ -179,7 +179,6 @@ export function fetchUser(id) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signedin`, { userId: id })
     .then(response => {
-      console.log(response);
       dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
     })
     .catch(({ response }) => {
@@ -200,7 +199,6 @@ export function signinUser({ username, password }) {
     // Submit email/password to server
     axios.post(`${ROOT_URL}/signin`, { username, password })
     .then(response => {
-      console.log(response);
       // If req is good,
       // - Update state to indicate user is auth'd
       dispatch({ type: AUTH_USER });
