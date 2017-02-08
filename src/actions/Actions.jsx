@@ -30,6 +30,21 @@ import {
 
 const ROOT_URL = 'http://localhost:3001';
 
+export function authError(error) {
+  console.log('triggered');
+  return {
+    type: AUTH_ERROR,
+    payload: error
+  };
+}
+
+export function authSuccess(success) {
+  return {
+    type: AUTH_SUCCESS,
+    payload: success
+  };
+}
+
 
 export function setSearchText(searchText) {
   return {
@@ -176,6 +191,7 @@ export function deleteCampground(id) {
 // Authorization
 //==========================================================================
 export function fetchUser(id) {
+  console.log('triggered fetchUser');
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signedin`, { userId: id })
     .then(response => {
@@ -199,6 +215,7 @@ export function signinUser({ username, password }) {
     // Submit email/password to server
     axios.post(`${ROOT_URL}/signin`, { username, password })
     .then(response => {
+      console.log(response.data);
       // If req is good,
       // - Update state to indicate user is auth'd
       dispatch({ type: AUTH_USER });
@@ -241,20 +258,6 @@ export function signupUser({ email, username, password }) {
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   }
-}
-
-export function authError(error) {
-  return {
-    type: AUTH_ERROR,
-    payload: error
-  };
-}
-
-export function authSuccess(success) {
-  return {
-    type: AUTH_SUCCESS,
-    payload: success
-  };
 }
 
 export function signoutUser() {

@@ -2,6 +2,8 @@ import _ from 'lodash';
 import React from 'react';
 import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 
+var actions = require('./actions/Actions');
+
 import About from './components/About';
 import App from './components/App';
 import CampgroundsApp from './components/CampgroundsApp';
@@ -15,18 +17,24 @@ import UserCP from './components/UserCP';
 
 const store = require('./store/configureStore').configure();
 
-const requireAuth = (nextState, replace) => {
-  const state = store.getState();
-  console.log(state);
-  console.log(nextState);
+const findSignedinUser = (nextState, replaceState) => {
+  // let state = store.getState();
+  // const { auth, signedinUser } = state;
+  // console.log(state);
+  // if (!auth.authenticated || _.isEmpty(signedinUser)) {
+  //   replaceState({
+  //     nextPathname: nextState.location.pathname
+  //   }, '/')
+  //   // store.dispatch(actions.authError('You must be logged in to do that!'));
+  // }
 }
 
 export default (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Landing} />
-      <Route path="about" component={About} onEnter={requireAuth}/>
-      <Route path="campgrounds" component={CampgroundsApp} />
+      <Route path="about" component={About} />
+      <Route path="campgrounds" onEnter={findSignedinUser} component={CampgroundsApp} />
       <Route path="campgrounds/new" component={RequireAuth(CampgroundForm)} />
       <Route path="campgrounds/edit/:id" component={RequireAuth(CampgroundForm)} />
       <Route path="campgrounds/:id" component={CampgroundShow} />

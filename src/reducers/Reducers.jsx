@@ -33,7 +33,8 @@ export function addCampgroundReducer(state={}, action) {
 export function authReducer(state = {}, action) {
   switch(action.type) {
     case AUTH_USER:
-      return { ...state, error:'', authenticated: true };
+    console.log('triggered');
+      return { ...state, authenticated: true };
     case UNAUTH_USER:
       return { ...state, authenticated: false };
     case AUTH_ERROR:

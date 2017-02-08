@@ -4216,3 +4216,6 @@ li {
   background-position: center;
   background-repeat: no-repeat;
   background-color: #f9f9f9; }
+
+.center-button {
+  transform: translate(50%, 0); }

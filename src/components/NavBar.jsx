@@ -9,10 +9,6 @@ import SigninForm from './auth/Signin';
 import SignupForm from './auth/Signup';
 
 class NavBar extends Component {
-  componentWillMount() {
-    const userId = localStorage.getItem('userId');
-    if (this.props.authenticated && !this.props.signedinUser) this.props.fetchUser(userId);
-  }
   handleChange(event) {
     event.preventDefault();
     let {dispatch} = this.props;

@@ -9,7 +9,6 @@ export default function(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
       if (!this.props.authenticated) {
-        this.props.authError('You must be signed in to do that!');
         browserHistory.goBack();
       }
     }
@@ -20,7 +19,6 @@ export default function(ComposedComponent) {
 
     componentWillUpdate(nextProps, nextState) {
       if (!nextProps.authenticated) {
-        this.props.authError('You must be signed in to do that!');
         browserHistory.goBack();
       }
     }
