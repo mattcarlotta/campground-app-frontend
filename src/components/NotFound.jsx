@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link, browserHistory } from 'react-router';
 
-const NotFound = () => {
-  return (
-    <div className="row">
-      <div className="columns medium-6 large-6 small-centered">
-        <div className="text-center">
-          <h1 className="page-title"> 404 - Page Not Found!</h1>
+class NotFound extends Component {
+  componentDidMount() {
+    document.body.classList.add('not-found-image');
+  }
+  componentWillUnmount() {
+    document.body.classList.remove('not-found-image');
+  }
+  render() {
+    return (
+      <div className="row">
+        <div className="container">
+          <button onClick={browserHistory.goBack} className="button primary rounded">
+            <i className="fa fa-arrow-left" aria-hidden="true"></i> Go Back
+          </button>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 

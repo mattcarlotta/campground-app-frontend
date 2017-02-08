@@ -4066,6 +4066,10 @@ li {
 .cursor {
   cursor: pointer; }
 
+.dark-title {
+  color: #235585;
+  font-size: 7rem; }
+
 .expand {
   width: 100%; }
 
@@ -4206,3 +4210,9 @@ li {
   background: #eee; }
   .favorite-details h3, .favorite-details h4, .favorite-details p {
     color: #337ab7; }
+
+.not-found-image {
+  background: url(/assets/images/not-found.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f9f9f9; }
