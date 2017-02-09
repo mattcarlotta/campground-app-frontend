@@ -181,8 +181,11 @@ export function editCampground({ id, name, image, description, location, zip }) 
 }
 
 export function deleteCampground(id) {
+  const config = {
+    headers: { authorization: localStorage.getItem('token') }
+  };
   return function(dispatch) {
-    axios.delete(`${ROOT_URL}/campgrounds/delete/${id}`)
+    axios.delete(`${ROOT_URL}/campgrounds/delete/${id}`, config)
     .then(response => {
       dispatch(authSuccess(response.data.message));
       dispatch({
@@ -298,8 +301,11 @@ export function fetchMessage() {
 
 export function addComment({ comment, id }) {
   return function(dispatch) {
+    const config = {
+      headers: { authorization: localStorage.getItem('token') }
+    };
     // Submit email/password to server
-    axios.post(`${ROOT_URL}/campgrounds/${id}/comment/new`, { comment, id })
+    axios.post(`${ROOT_URL}/campgrounds/${id}/comment/new`, { comment, id }, config)
     .then(response => {
       dispatch(fetchCampgroundWithUpdatedComments(id));
       // dispatch(authSuccess(response.data.message));
@@ -317,8 +323,11 @@ export function setCommentText(comment) {
 
 export function editComment({ commentId, comment, campgroundId }) {
   return function(dispatch) {
+    const config = {
+      headers: { authorization: localStorage.getItem('token') }
+    };
     // Submit email/password to server
-    axios.put(`${ROOT_URL}/campgrounds/${campgroundId}/comment/edit/${commentId}`, { commentId, comment })
+    axios.put(`${ROOT_URL}/campgrounds/${campgroundId}/comment/edit/${commentId}`, { commentId, comment }, config)
     .then(response => {
       dispatch(setCommentText(''));
       dispatch(fetchCampgroundWithUpdatedComments(campgroundId));
@@ -331,7 +340,10 @@ export function editComment({ commentId, comment, campgroundId }) {
 
 export function deleteComment({ campgroundId, commentId }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/campgrounds/${campgroundId}/comment/delete/${commentId}`, { campgroundId, commentId })
+    const config = {
+      headers: { authorization: localStorage.getItem('token') }
+    };
+    axios.post(`${ROOT_URL}/campgrounds/${campgroundId}/comment/delete/${commentId}`, { campgroundId, commentId }, config)
     .then(response => {
       dispatch(fetchCampgroundWithUpdatedComments(campgroundId));
       // dispatch(authSuccess(response.data.message));
