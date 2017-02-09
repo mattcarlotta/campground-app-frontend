@@ -42,18 +42,9 @@ class ShowCampground extends Component {
 
   countdownTimer() {
     if (this.props.errorMessage) {
-      this.timer = setInterval(() => {
-        let newCount = this.state.count - 1;
-        this.setState({
-          count: newCount >= 0 ? newCount : 0
-        });
-
-        if (newCount === 0) {
-          clearInterval(this.timer)
-          this.timer = undefined;
-          browserHistory.goBack();
-        }
-      }, 1000);
+      window.setTimeout(() => {
+        browserHistory.goBack();
+      }, 2500);
     }
   }
 

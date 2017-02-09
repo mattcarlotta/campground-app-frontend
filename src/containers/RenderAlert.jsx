@@ -8,7 +8,7 @@ class RenderAlert extends Component {
     window.setTimeout(() => {
       this.props.authError('');
       this.props.authSuccess('');
-    }, 1500);
+    }, 2500);
   }
 
   displayMessage() {
@@ -31,7 +31,7 @@ class RenderAlert extends Component {
 
   render() {
     return (
-      <div className="absolute">
+      <div className="">
         {this.displayMessage()}
       </div>
     );

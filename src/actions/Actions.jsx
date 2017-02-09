@@ -24,7 +24,6 @@ import {
 } from './Types';
 
 import {
-  API_KEY,
   WEATHER_URL
 } from './config/OpenWeatherMapAPI';
 
@@ -105,8 +104,13 @@ export function fetchWeather(zip) {
         type: FETCH_WEATHER,
         payload: response.data
       });
+    })
+    .catch(({ response }) => {
+      if (response.status === 500) {
+        dispatch(authError('There was an internal server error with OpenWeatherMap.org, please try again later!'));
+      }
     });
-  };
+  }
 }
 
 //==========================================================================
@@ -227,7 +231,6 @@ export function signinUser({ username, password }) {
     // Submit email/password to server
     axios.post(`${ROOT_URL}/signin`, { username, password })
     .then(response => {
-      console.log(response.data);
       // If req is good,
       // - Update state to indicate user is auth'd
       dispatch({ type: AUTH_USER });
