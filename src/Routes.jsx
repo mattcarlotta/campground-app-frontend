@@ -17,24 +17,24 @@ import UserCP from './components/UserCP';
 
 const store = require('./store/configureStore').configure();
 
-const findSignedinUser = (nextState, replaceState) => {
-  // let state = store.getState();
-  // const { auth, signedinUser } = state;
-  // console.log(state);
-  // if (!auth.authenticated || _.isEmpty(signedinUser)) {
-  //   replaceState({
-  //     nextPathname: nextState.location.pathname
-  //   }, '/')
-  //   // store.dispatch(actions.authError('You must be logged in to do that!'));
-  // }
+const isLoggedIn = (nextState, replaceState) => {
+  let state = store.getState();
+  const { auth, signedinUser } = state;
+  console.log(state);
+  if (!auth.authenticated || _.isEmpty(signedinUser)) {
+    replaceState({
+      nextPathname: nextState.location.pathname
+    }, '/')
+    store.dispatch(actions.authError('You must be logged in to do that!'));
+  }
 }
 
 export default (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Landing} />
-      <Route path="about" component={About} />
-      <Route path="campgrounds" onEnter={findSignedinUser} component={CampgroundsApp} />
+      <Route path="about" onEnter={isLoggedIn} component={About} />
+      <Route path="campgrounds" component={CampgroundsApp} />
       <Route path="campgrounds/new" component={RequireAuth(CampgroundForm)} />
       <Route path="campgrounds/edit/:id" component={RequireAuth(CampgroundForm)} />
       <Route path="campgrounds/:id" component={CampgroundShow} />
