@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import RenderAlert from '../containers/RenderAlert';
+import ShowAlert from '../containers/ShowAlert';
 
 class Landing extends Component {
   componentDidMount() {
@@ -11,11 +11,12 @@ class Landing extends Component {
   componentWillUnmount() {
     document.body.classList.remove('background-image');
   }
+
   render() {
     return (
       <div>
         <div className="row">
-          <RenderAlert />
+          <ShowAlert />;
           <div className="columns medium-6 large-4 small-centered">
             <div className="content text-center">
               <h1>Yelp Camp</h1>
@@ -30,5 +31,11 @@ class Landing extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    signinModalState: state.signinModalState,
+    signupModalState: state.signupModalState
+   };
+}
 
-export default Landing;
+export default connect(mapStateToProps)(Landing);

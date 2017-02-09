@@ -5,7 +5,7 @@ import { Link, browserHistory } from 'react-router';
 
 import Comments from '../components/Comments';
 import Favorites from '../containers/Favorites';
-import RenderAlert from '../containers/RenderAlert';
+import ShowAlert from '../containers/ShowAlert';
 import ShowGoogleMap from '../containers/ShowGoogleMap';
 import * as actions from '../actions/Actions';
 
@@ -65,7 +65,7 @@ class ShowCampground extends Component {
           <div className="columns medium-6 large-4 small-centered">
             <div className="content text-center">
               <h3><i className="fa fa-cog fa-spin"></i>Loading...</h3>
-              <RenderAlert />
+              <ShowAlert />
               {this.countdownTimer()}
             </div>
           </div>
@@ -81,7 +81,7 @@ class ShowCampground extends Component {
     return (
       <div>
         <div className="row">
-          <RenderAlert />
+          <ShowAlert />
           <div className="columns medium-4 text-center">
             <div className="container campground-details rounded">
               <h3>{campground.name}</h3>

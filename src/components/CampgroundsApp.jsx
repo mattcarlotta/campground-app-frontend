@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 import Campgrounds from '../containers/Campgrounds';
 import filterCampgrounds from '../api/CampgroundAPI';
-import RenderAlert from '../containers/RenderAlert';
+import ShowAlert from '../containers/ShowAlert';
 import * as actions from '../actions/Actions';
 
 class CampgroundsApp extends Component{
@@ -62,7 +62,7 @@ class CampgroundsApp extends Component{
 
     return (
       <div className="row">
-        <RenderAlert />
+        <ShowAlert />
         <div className="text-center">
           <div className="row">
             <div className="small-centered large-12">
