@@ -2,17 +2,12 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import {
-  ADD_FAVORITE,
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_USER,
-  CAMPGROUND_DELETE,
-  CAMPGROUND_EDIT,
-  // DELETE_FAVORITE,
   FETCH_CAMPGROUND,
   FETCH_CAMPGROUND_COMMENTS,
   FETCH_CAMPGROUNDS,
-  FETCH_MESSAGE,
   FETCH_WEATHER,
   SET_COMMENT_TEXT,
   SET_SEARCH_TEXT,
@@ -134,7 +129,7 @@ export function fetchFavorites({ userId }) {
   return function (dispatch) {
     axios.get(`${ROOT_URL}/favorites/${userId}`)
     .then(response => {
-      dispatch({ type: ADD_FAVORITE, payload: response.data.favorites});
+      dispatch({ type: UPDATE_FAVORITES, payload: response.data.favorites});
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
   }
@@ -192,9 +187,6 @@ export function deleteCampground(id) {
     axios.delete(`${ROOT_URL}/campgrounds/delete/${id}`, config)
     .then(response => {
       dispatch(authSuccess(response.data.message));
-      dispatch({
-        type: CAMPGROUND_DELETE
-      });
       browserHistory.push('/campgrounds');
     })
     .catch(({ response }) => dispatch(authError(response.data.err)));
@@ -282,20 +274,6 @@ export function signoutUser() {
   return {
     type: UNAUTH_USER
   };
-}
-
-export function fetchMessage() {
-  return function(dispatch) {
-    axios.get(ROOT_URL, {
-      headers: { authorization: localStorage.getItem('token') }
-    })
-    .then(response => {
-      dispatch({
-        type: FETCH_MESSAGE,
-        payload: response.data.message
-      });
-    });
-  }
 }
 
 //==========================================================================
