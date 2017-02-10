@@ -63,7 +63,6 @@ class CampgroundsApp extends Component{
     return (
       <div className="row">
         <ShowAlert />
-        <div className="text-center">
           <div className="row">
             <div className="small-centered large-12">
               <div className="jumbotron rounded text-left">
@@ -75,9 +74,8 @@ class CampgroundsApp extends Component{
               </div>
             </div>
           </div>
-          <div className="row">
-            {this.renderCampgrounds()}
-          </div>
+        <div className="row">
+          {this.renderCampgrounds()}
         </div>
       </div>
     );

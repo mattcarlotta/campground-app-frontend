@@ -23,7 +23,7 @@ class NavBar extends Component {
       const signedinUser = this.props.signedinUser;
 
       return [
-        <div className="top-bar-right" key="0">
+        <div className="top-bar-right columns small-12 medium-4" key="0">
           <ul className="menu">
             <li>
               <Link to="/UserCP" className="menu-signedin"><i className="fa fa-user" aria-hidden="true"></i> Welcome, {signedinUser}!</Link>
@@ -37,7 +37,7 @@ class NavBar extends Component {
     } else {
       // show a link to sign in or sign up
       return [
-        <div className="top-bar-right" key="1">
+        <div className="top-bar-right columns small-12 medium-4" key="1">
           <ul className="menu">
             <li>
               <Link onClick={this.props.signinModal}><i className="fa fa-user-o" aria-hidden="true" /> Sign In</Link>
@@ -71,11 +71,11 @@ class NavBar extends Component {
     }
   }
   render() {
-    let { searchText } = this.props;
+    const { searchText } = this.props;
 
     return (
-      <div className="top-bar">
-        <div className="top-bar-left">
+      <div className="top-bar columns medium-12">
+        <div className="top-bar-left columns small-12 medium-4">
           <ul className="breadcrumbs">
             <li id="uppercased" className="menu-text"><i className="fa fa-free-code-camp" aria-hidden="true"/> Yelp Camp App</li>
             <li className="menu-text">
@@ -89,7 +89,7 @@ class NavBar extends Component {
             </li>
           </ul>
         </div>
-        <div className="top-bar-middle">
+        <div className="top-bar-middle columns small-12 medium-4">
           <ul className="menu">
             <li>
               <form onChange={this.handleChange.bind(this)}>

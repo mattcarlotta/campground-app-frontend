@@ -15,9 +15,13 @@
   }
 
   .top-bar-middle {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    // position: absolute;
+    // left: 50%;
+    // transform: translate(-50%, 0%);
+    width: 200px;
+    // margin-left: 7rem;
+  //  text-align: center;
+  //  vertical-align: middle;
     input {
     max-width: 400px;
     width: 400px;
