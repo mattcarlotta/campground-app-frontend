@@ -4116,6 +4116,9 @@ li {
 .spaced {
   margin: .7rem 0; }
 
+.special-container {
+  margin-top: 4rem; }
+
 .small-icon {
   font-size: .8rem; }
 
@@ -4197,7 +4200,7 @@ li {
   background: #eee;
   border: 1px solid #d4e3f1;
   padding: 1.5rem;
-  margin: 6rem 0;
+  margin: 10rem 0 3rem 0;
   color: #235585; }
 
 .control-panel-title {

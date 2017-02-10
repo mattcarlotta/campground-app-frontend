@@ -85,7 +85,7 @@ class CampgroundForm extends Component {
     return (
       <div className="row padded">
         <div className="small-centered large-6">
-          <div className="container form-details rounded">
+          <div className="special-container form-details rounded">
             {this.handleTitle()}
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
               <Field name="name" type="text" component={renderField} label="Campground Name" />
