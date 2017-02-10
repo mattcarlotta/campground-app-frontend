@@ -2,7 +2,7 @@
   background: $light-grey;
   border: 1px solid $coolgrey;
   padding: 1.5rem;
-  margin: 5rem 0 2rem 0;
+  margin-bottom: 2rem;
   color: $jumbtron-text-color;
 
   h1 {
@@ -28,6 +28,26 @@
 .img-thumbnail {
   img {
   height: 16rem;
+  }
+}
+
+.nav-container {
+  margin: 4.25rem 0 .5rem 0;
+  margin-left: 0.7rem;
+}
+
+.nav-breadcrumbs {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.7rem;
+
+  .campground-name {
+    color: $dark-gray;
+  }
+
+  li {
+    display: inline;
   }
 }
 

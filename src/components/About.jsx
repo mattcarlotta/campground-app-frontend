@@ -1,8 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const About = () => {
   return (
     <div className="row">
+      <div className="nav-container">
+        <ul className="nav-breadcrumbs">
+          <li>
+            <Link to="/">Home </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+          </li>
+          <li>
+            <span className="campground-name"> About</span>
+          </li>
+        </ul>
+      </div>
       <div className="columns medium-6 large-6 small-centered">
         <div className="text-center">
           <h1 className="page-title"> </h1>

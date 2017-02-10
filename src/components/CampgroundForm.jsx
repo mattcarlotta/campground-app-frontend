@@ -79,30 +79,67 @@ class CampgroundForm extends Component {
     this.props.initialize(initData);
   }
 
+  handleNavBar(Title) {
+    if (this.props.params.id) {
+      const id = this.props.params.id;
+      const campgroundName = this.props.campground.name;
+      return (
+        <span>
+          <li>
+            <Link to={"/campgrounds/" + id}> {campgroundName} </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+          </li>
+          <li>
+            <span className="campground-name"> {Title} Campground</span>
+          </li>
+        </span>
+      );
+    } else {
+      return (
+        <span>
+          <li>
+            <span className="campground-name"> {Title} Campground</span>
+          </li>
+        </span>
+      );
+    }
+  }
+
   render() {
     const { handleSubmit, pristine, reset, submitting, fields: { name, image, description, location, zip } } = this.props;
 
+    const Title = this.props.params.id ? "Edit" : "Add New"
+
     return (
-      <div className="row padded">
-        <div className="small-centered large-6">
-          <div className="special-container form-details rounded">
-            {this.handleTitle()}
-            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-              <Field name="name" type="text" component={renderField} label="Campground Name" />
-              <Field name="image" type="text" component={renderField} label="Image URL" />
-              <Field name="description" type="text" component={renderField} label="Brief Description" />
-              <Field name="location" type="text" component={renderField} label="Location" />
-              <Field name="zip" type="number" component={renderField} label="5 Digit Zip Code" />
-              <div>
-                <button type="submit" className="button primary expanded rounded" disabled={submitting}>Submit</button>
-                <button type="button" className="button alert expanded rounded" disabled={ pristine || submitting } onClick={ reset }>Clear Values</button>
-              </div>
-            </form>
-          </div>
-          <RenderAlert />
+      <div className="row">
+        <div className="nav-container">
+          <ul className="nav-breadcrumbs">
+            <li>
+              <Link to="/">Home </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+              <Link to="/campgrounds"> Campgrounds </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            {this.handleNavBar(Title)}
+          </ul>
         </div>
-        <div className="index-link">
-          <Link onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</Link>
+        <div>
+          <div className="small-centered large-6">
+            <div className="container">
+              {this.handleTitle()}
+              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                <Field name="name" type="text" component={renderField} label="Campground Name" />
+                <Field name="image" type="text" component={renderField} label="Image URL" />
+                <Field name="description" type="text" component={renderField} label="Brief Description" />
+                <Field name="location" type="text" component={renderField} label="Location" />
+                <Field name="zip" type="number" component={renderField} label="5 Digit Zip Code" />
+                <div>
+                  <button type="submit" className="button primary expanded rounded" disabled={submitting}>Submit</button>
+                  <button type="button" className="button alert expanded rounded" disabled={ pristine || submitting } onClick={ reset }>Clear Values</button>
+                </div>
+              </form>
+            </div>
+            <RenderAlert />
+          </div>
         </div>
       </div>
     )

@@ -44,7 +44,7 @@ class ShowCampground extends Component {
     if (this.props.errorMessage) {
       window.setTimeout(() => {
         browserHistory.goBack();
-      }, 2500);
+      }, 1500);
     }
   }
 
@@ -82,13 +82,21 @@ class ShowCampground extends Component {
       <div>
         <ShowAlert />
         <div className="row">
-          <div className="columns medium-1 index-link">
-            <button onClick={browserHistory.goBack} className="button small primary rounded float-left">
-              <i className="fa fa-arrow-left" aria-hidden="true"></i> Back
-            </button>
+          <div className="nav-container">
+            <ul className="nav-breadcrumbs">
+              <li>
+                <Link to="/">Home </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </li>
+              <li>
+                <Link to="/campgrounds"> Campgrounds </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </li>
+              <li>
+                <span className="campground-name"> {campground.name}</span>
+              </li>
+            </ul>
           </div>
-          <div className="columns medium-7">
-            <div className="container campground rounded">
+          <div className="columns medium-8">
+            <div className="campground rounded">
               <img className="large-image-container expand rounded" src={campground.image} />
               <p className="title text-center">{campground.name} - {campground.location}
               {this.renderFavoritesIcon()}
@@ -103,7 +111,7 @@ class ShowCampground extends Component {
             <Comments comments={campground.comments} id={this.props.params.id} />
           </div>
           <div className="columns medium-4 text-center">
-            <div className="container campground-details rounded">
+            <div className="campground-details rounded">
               <h3>{campground.name}</h3>
               <hr />
               <ShowGoogleMap />

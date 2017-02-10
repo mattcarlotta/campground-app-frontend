@@ -62,6 +62,16 @@ class CampgroundsApp extends Component{
 
     return (
       <div className="row">
+        <div className="nav-container">
+          <ul className="nav-breadcrumbs">
+            <li>
+              <Link to="/">Home </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+              <span className="campground-name"> Campgrounds</span>
+            </li>
+          </ul>
+        </div>
         <ShowAlert />
           <div className="row">
             <div className="small-centered large-12">
