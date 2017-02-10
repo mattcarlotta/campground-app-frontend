@@ -8,7 +8,7 @@ import * as actions from '../../actions/Actions';
 export default function(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
-      if (!this.props.authenticated) {
+      if (!this.props.authenticated && !this.props.signedinUser) {
         browserHistory.goBack();
       }
     }
@@ -18,13 +18,20 @@ export default function(ComposedComponent) {
     }
 
     componentWillUpdate(nextProps, nextState) {
-      if (!nextProps.authenticated) {
+      if (!nextProps.authenticated && !nextProps.signedinUser) {
         browserHistory.goBack();
       }
     }
 
     render() {
-      return <ComposedComponent {...this.props} />
+      return (
+        <span>
+          {this.props.authenticated === true && this.props.signedinUser
+            ? <ComposedComponent {...this.props} />
+          : null
+          }
+        </span>
+      )
     }
   }
 

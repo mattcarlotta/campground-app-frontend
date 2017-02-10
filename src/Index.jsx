@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { browserHistory } from 'react-router';
 import promise from 'redux-promise';
 
-import routes from './routes';
+import routes from './routes/Routes';
 var store = require('./store/configureStore').configure();
 
 // Load foundation

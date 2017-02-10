@@ -18,7 +18,7 @@ import {
   setSignedinUserReducer
 } from '../reducers/Reducers';
 
-export let configure = (initialState = {}) => {
+export const configure = (initialState = {}) => {
   let reducer = redux.combineReducers({
     form,
     auth: authReducer,
@@ -45,6 +45,5 @@ export let configure = (initialState = {}) => {
     store.dispatch({ type: AUTH_USER });
     store.dispatch(actions.fetchUser(userId));
   }
-  console.log(store.getState());
   return store;
 };

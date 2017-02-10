@@ -16,7 +16,7 @@ class Landing extends Component {
     return (
       <div>
         <div className="row">
-          <ShowAlert />;
+          <ShowAlert />
           <div className="columns medium-6 large-4 small-centered">
             <div className="content text-center">
               <h1>Yelp Camp</h1>
