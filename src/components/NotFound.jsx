@@ -5,18 +5,20 @@ class NotFound extends Component {
   componentDidMount() {
     document.body.classList.add('not-found-image');
   }
+
   componentWillUnmount() {
     document.body.classList.remove('not-found-image');
   }
+
+  countdownTimer() {
+    window.setTimeout(() => {
+      browserHistory.goBack();
+    }, 1500);
+  }
+
   render() {
     return (
-      <div className="row">
-        <div className="back-button-container">
-          <button onClick={browserHistory.goBack} className="button primary rounded">
-            <i className="fa fa-arrow-left" aria-hidden="true"></i> Go Back
-          </button>
-        </div>
-      </div>
+      <span>{this.countdownTimer()}</span>
     );
   }
 };

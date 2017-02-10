@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { IndexLink, Link, browserHistory } from 'react-router';
 
 import * as actions from '../actions/Actions';
+import RenderModal from '../containers/RenderModal';
 import SigninForm from './auth/Signin';
 import SignupForm from './auth/Signup';
 
@@ -41,29 +42,23 @@ class NavBar extends Component {
           <ul className="menu">
             <li>
               <Link onClick={this.props.signinModal}><i className="fa fa-user-o" aria-hidden="true" /> Sign In</Link>
-              <Modal
-                isOpen={this.props.signinModalState}
-                onRequestClose={this.props.signinModal}
-                className="modal-content signin-modal-size rounded title"
-                overlayClassName="modal-overlay"
-                contentLabel="Sigin Modal"
-              >
-                <SigninForm />
-                <p onClick={this.props.signinModal} className="text-center cursor">close</p>
-              </Modal>
+              <RenderModal
+                isOpenModal={this.props.signinModalState}
+                onReqClose={this.props.signinModal}
+                classModal='modal-content signin-modal-size rounded title'
+                overlayModal='modal-overlay'
+                contentModal='Signin Modal'
+                />
             </li>
             <li>
               <Link onClick={this.props.signupModal} key="1"  activeClassName="active-link"><i className="fa fa-user-plus" aria-hidden="true" /> Sign Up</Link>
-                <Modal
-                  isOpen={this.props.signupModalState}
-                  onRequestClose={this.props.signupModal}
-                  className="modal-content signup-modal-size rounded title"
-                  overlayClassName="modal-overlay"
-                  contentLabel="Example Modal"
-                >
-                  <SignupForm />
-                  <p onClick={this.props.signupModal} className="text-center cursor">close</p>
-                </Modal>
+                <RenderModal
+                  isOpenModal={this.props.signupModalState}
+                  onReqClose={this.props.signupModal}
+                  classModal="modal-content signup-modal-size rounded title"
+                  overlayModal="modal-overlay"
+                  contentModal="Signup Modal"
+                />
             </li>
           </ul>
         </div>
@@ -117,3 +112,14 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(NavBar);
+
+// <Modal
+//   isOpen={this.props.signinModalState}
+//   onRequestClose={this.props.signinModal}
+//   className="modal-content signin-modal-size rounded title"
+//   overlayClassName="modal-overlay"
+//   contentLabel="Sigin Modal"
+// >
+//   <SigninForm />
+//   <p onClick={this.props.signinModal} className="text-center cursor">close</p>
+// </Modal>

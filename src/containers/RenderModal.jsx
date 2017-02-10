@@ -8,16 +8,21 @@ import SignupForm from '../components/auth/Signup';
 
 class RenderModal extends Component {
   displayModal() {
-    <Modal
-      isOpen={this.props.signinModalState}
-      onRequestClose={this.props.signinModal}
-      className="modal-content signin-modal-size rounded title"
-      overlayClassName="modal-overlay"
-      contentLabel="Sigin Modal"
-    >
-      <SigninForm />
-      <p onClick={this.props.signinModal} className="text-center cursor">close</p>
-    </Modal>
+    const { isOpenModal, onReqClose, classModal, overlayModal, contentModal } = this.props;
+    const Form = (contentModal === 'Signin Modal') ? <SigninForm /> : <SignupForm />
+
+    return (
+      <Modal
+        isOpen={isOpenModal}
+        onRequestClose={onReqClose}
+        className={classModal}
+        overlayClassName={overlayModal}
+        contentLabel={contentModal}
+      >
+        {Form}
+        <p onClick={onReqClose} className="text-center cursor">close</p>
+      </Modal>
+    );
   }
 
   render() {

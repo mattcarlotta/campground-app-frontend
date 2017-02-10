@@ -4235,5 +4235,5 @@ li {
   background-repeat: no-repeat;
   background-color: #f9f9f9; }
 
-.back-button-container {
-  transform: translate(0%, 50%); }
+.notfound-container {
+  font-size: 10rem; }
