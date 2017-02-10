@@ -10,7 +10,7 @@ class ShowRenderAlert extends Component {
   }
   render() {
     return (
-      <span>
+      <span className="absolute">
         {this.renderAlert()}
       </span>
     );

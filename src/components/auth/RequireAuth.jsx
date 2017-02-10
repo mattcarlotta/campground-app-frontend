@@ -9,7 +9,8 @@ export default function(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
       if (!this.props.authenticated && !this.props.signedinUser) {
-        browserHistory.goBack();
+        this.props.authError('You must be logged in to do that!');
+        browserHistory.push('/');
       }
     }
 
@@ -19,7 +20,8 @@ export default function(ComposedComponent) {
 
     componentWillUpdate(nextProps, nextState) {
       if (!nextProps.authenticated && !nextProps.signedinUser) {
-        browserHistory.goBack();
+        this.props.authError('You must be logged in to do that!');
+        browserHistory.push('/');
       }
     }
 

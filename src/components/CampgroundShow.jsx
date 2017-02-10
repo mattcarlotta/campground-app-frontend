@@ -80,8 +80,8 @@ class ShowCampground extends Component {
 
     return (
       <div>
+        <ShowAlert />
         <div className="row">
-          <ShowAlert />
           <div className="columns medium-4 text-center">
             <div className="container campground-details rounded">
               <h3>{campground.name}</h3>

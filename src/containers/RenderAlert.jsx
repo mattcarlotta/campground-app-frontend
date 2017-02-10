@@ -14,14 +14,14 @@ class RenderAlert extends Component {
   displayMessage() {
     if (this.props.successMessage){
       return (
-        <div className="callout success" data-closable="slide-out-right">
+        <div className="callout success text-center" data-closable="slide-out-right">
           {this.renderTimeout()}
           {this.props.successMessage}
         </div>
       );
     } else if (this.props.errorMessage) {
         return (
-          <div className="callout alert" data-closable="slide-out-right">
+          <div className="callout alert text-center" data-closable="slide-out-right">
             {this.renderTimeout()}
             <i className="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Error!</strong> {this.props.errorMessage}
           </div>
@@ -31,7 +31,7 @@ class RenderAlert extends Component {
 
   render() {
     return (
-      <div className="">
+      <div>
         {this.displayMessage()}
       </div>
     );
