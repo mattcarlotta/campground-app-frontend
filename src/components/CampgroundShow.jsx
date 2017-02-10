@@ -82,6 +82,26 @@ class ShowCampground extends Component {
       <div>
         <ShowAlert />
         <div className="row">
+          <div className="columns medium-1 index-link">
+            <button onClick={browserHistory.goBack} className="button small primary rounded float-left">
+              <i className="fa fa-arrow-left" aria-hidden="true"></i> Back
+            </button>
+          </div>
+          <div className="columns medium-7">
+            <div className="container campground rounded">
+              <img className="large-image-container expand rounded" src={campground.image} />
+              <p className="title text-center">{campground.name} - {campground.location}
+              {this.renderFavoritesIcon()}
+              </p>
+              <div>
+                <hr className="title-break"/>
+              </div>
+              <p className="description">{campground.description}</p>
+              {this.showAuthorButtons()}
+              <p className="submitted"><em>Submitted by: {campground.author}</em></p>
+            </div>
+            <Comments comments={campground.comments} id={this.props.params.id} />
+          </div>
           <div className="columns medium-4 text-center">
             <div className="container campground-details rounded">
               <h3>{campground.name}</h3>
@@ -101,26 +121,6 @@ class ShowCampground extends Component {
               <h4>Current Humidity</h4>
               <p>{humidity}%</p>
             </div>
-            <div className="index-link">
-              <button onClick={browserHistory.goBack} className="button primary rounded float-left">
-                <i className="fa fa-arrow-left" aria-hidden="true"></i> Back
-              </button>
-            </div>
-          </div>
-          <div className="columns medium-8">
-            <div className="container campground rounded">
-              <img className="large-image-container expand rounded" src={campground.image} />
-              <p className="title text-center">{campground.name} - {campground.location}
-              {this.renderFavoritesIcon()}
-              </p>
-              <div>
-                <hr className="title-break"/>
-              </div>
-              <p className="description">{campground.description}</p>
-              {this.showAuthorButtons()}
-              <p className="submitted"><em>Submitted by: {campground.author}</em></p>
-            </div>
-            <Comments comments={campground.comments} id={this.props.params.id} />
           </div>
         </div>
       </div>

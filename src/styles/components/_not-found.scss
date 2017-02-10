@@ -1,11 +1,11 @@
 .not-found-image {
 	background: url(/assets/images/not-found.png);
-	background-size: 900px;
+	background-size: 750px;
   background-position: center;
   background-repeat: no-repeat;
   background-color: $off-white;
 }
 
-.center-button {
-	transform: translate(50%, 0);
+.back-button-container {
+	transform: translate(0%, 50%);
 }

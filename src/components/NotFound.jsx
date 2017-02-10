@@ -11,7 +11,7 @@ class NotFound extends Component {
   render() {
     return (
       <div className="row">
-        <div className="container">
+        <div className="back-button-container">
           <button onClick={browserHistory.goBack} className="button primary rounded">
             <i className="fa fa-arrow-left" aria-hidden="true"></i> Go Back
           </button>
