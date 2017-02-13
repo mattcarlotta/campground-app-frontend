@@ -46,7 +46,15 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 
 class CampgroundForm extends Component {
   componentDidMount() {
-    if (this.props.params.id) this.handleInitialize();
+    if (this.props.params.id) {
+      const { signedinUser } = this.props;
+      this.checkAuthor(signedinUser).then(() => {
+          this.handleInitialize();
+        }, (err) => {
+          this.props.authError('You do have permission to do that!');
+          browserHistory.push('/');
+      });
+    }
   }
 
   handleFormSubmit(formProps) {
@@ -66,6 +74,13 @@ class CampgroundForm extends Component {
     } else {
       return (<AddCampground />);
     }
+  }
+
+  checkAuthor(signedinUser) {
+    const campgroundAuthor = this.props.campground.author;
+    return new Promise(function(resolve,reject){
+        campgroundAuthor === signedinUser ? resolve() : reject()
+    });
   }
 
   handleInitialize() {

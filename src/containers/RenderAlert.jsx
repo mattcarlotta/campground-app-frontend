@@ -8,7 +8,7 @@ class RenderAlert extends Component {
     window.setTimeout(() => {
       this.props.authError('');
       this.props.authSuccess('');
-    }, 1500);
+    }, 2000);
   }
 
   displayMessage() {

@@ -44,7 +44,7 @@ class ShowCampground extends Component {
     if (this.props.errorMessage) {
       window.setTimeout(() => {
         browserHistory.goBack();
-      }, 1500);
+      }, 2000);
     }
   }
 
