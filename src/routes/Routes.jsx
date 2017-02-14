@@ -13,7 +13,6 @@ import NotFound from '../components/NotFound';
 import RequireAuth from '../components/auth/RequireAuth';
 import UserCP from '../components/UserCP';
 
-
 export default (
   <Router history={browserHistory}>
     <Route path="/" component={App}>

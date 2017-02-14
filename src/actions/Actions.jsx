@@ -167,15 +167,25 @@ export function addNewCampground({ name, image, description, location, zip, auth
 export function editCampground({ id, name, image, description, location, zip }) {
   return function(dispatch) {
     const config = {
-      headers: { authorization: localStorage.getItem('token') }
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
     };
+    const userId = localStorage.getItem('userId');
     // Submit email/password to server
-    axios.put(`${ROOT_URL}/campgrounds/edit/:id`, { id, name, image, description, location, zip }, config)
+    axios.put(`${ROOT_URL}/campgrounds/edit/:id?userId=${userId}`, { id, name, image, description, location, zip }, config)
     .then(response => {
       dispatch(authSuccess(response.data.updatedCampground));
       browserHistory.goBack();
     })
-    .catch(({ response }) => dispatch(authError(response.data.err)));
+    .catch(({ response }) => {
+      if(response.data.denied) {
+        dispatch(authError(response.data.denied));
+        dispatch(signoutUser());
+      } else {
+        dispatch(authError(response.data.err))
+      }
+    });
   };
 }
 
@@ -183,14 +193,23 @@ export function deleteCampground(id) {
   const config = {
     headers: { authorization: localStorage.getItem('token') }
   };
+  const userId = localStorage.getItem('userId');
+
   return function(dispatch) {
-    axios.delete(`${ROOT_URL}/campgrounds/delete/${id}`, config)
+    axios.delete(`${ROOT_URL}/campgrounds/delete/${id}?userId=${userId}`, config)
     .then(response => {
       dispatch(authSuccess(response.data.message));
       browserHistory.push('/campgrounds');
     })
-    .catch(({ response }) => dispatch(authError(response.data.err)));
-  }
+    .catch(({ response }) => {
+      if(response.data.denied) {
+        dispatch(authError(response.data.denied));
+        dispatch(signoutUser());
+      } else {
+        dispatch(authError(response.data.err))
+      }
+    });
+  };
 }
 
 //==========================================================================
@@ -201,7 +220,7 @@ export function fetchUser(id) {
     headers: { authorization: localStorage.getItem('token') }
   };
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/signedin`, { userId: id }, config)
+    axios.get(`${ROOT_URL}/signedin?userId=${id}`, config)
     .then(response => {
       dispatch({ type: SET_SIGNEDIN_USER, payload: response.data});
     })
