@@ -68,13 +68,30 @@ class EditComment extends Component {
   }
 
   render() {
-    const { handleSubmit, pristine, reset, submitting, fields: { commentText }} = this.props;
+    const { campground, handleSubmit, pristine, reset, submitting, fields: { commentText }} = this.props;
 
     return (
-      <div className="row padded">
+      <div className="row">
+        <div className="nav-container">
+          <ul className="nav-breadcrumbs">
+            <li>
+              <Link to="/">Home </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+              <Link to="/campgrounds"> Campgrounds </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+              <Link to={"/campgrounds/" + campground._id}> {campground.name} </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+              <span className="campground-name"> Edit Comment</span>
+            </li>
+          </ul>
+        </div>
         <div className="small-centered large-4">
-          <div className="container form-details rounded">
+          <div className="container">
             <h1 className="title text-center">Edit Comment</h1>
+            <hr />
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
               <Field name="commentText" type="text" component={renderField} />
               <div>
@@ -85,9 +102,6 @@ class EditComment extends Component {
             <RenderAlert />
           </div>
         </div>
-        <div className="index-link">
-          <Link onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</Link>
-        </div>
       </div>
     );
   }
@@ -96,6 +110,7 @@ class EditComment extends Component {
 function mapStateToProps(state) {
   return {
     author: state.comment.author,
+    campground: state.campground,
     campgroundId: state.comment.campgroundId,
     commentId: state.comment.commentId,
     commentText: state.comment.commentText,
