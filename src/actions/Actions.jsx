@@ -154,8 +154,9 @@ export function addNewCampground({ name, image, description, location, zip, auth
     const config = {
       headers: { authorization: localStorage.getItem('token') }
     };
-    // Submit email/password to server
-    axios.post(`${ROOT_URL}/campgrounds/new`, { name, image, description, location, zip, author }, config)
+    const userId = localStorage.getItem('userId');
+
+    axios.post(`${ROOT_URL}/campgrounds/new?userId=${userId}`, { name, image, description, location, zip, author }, config)
     .then(response => {
       dispatch(authSuccess(response.data.message));
       browserHistory.push('/campgrounds');

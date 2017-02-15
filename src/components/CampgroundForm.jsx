@@ -57,6 +57,13 @@ class CampgroundForm extends Component {
     }
   }
 
+  checkAuthor(signedinUser) {
+    const campgroundAuthor = this.props.campground.author;
+    return new Promise(function(resolve,reject){
+        campgroundAuthor === signedinUser ? resolve() : reject()
+    });
+  }
+
   handleFormSubmit(formProps) {
     if (this.props.params.id) {
       formProps = { id: this.props.params.id, ...formProps};
@@ -74,13 +81,6 @@ class CampgroundForm extends Component {
     } else {
       return (<AddCampground />);
     }
-  }
-
-  checkAuthor(signedinUser) {
-    const campgroundAuthor = this.props.campground.author;
-    return new Promise(function(resolve,reject){
-        campgroundAuthor === signedinUser ? resolve() : reject()
-    });
   }
 
   handleInitialize() {
