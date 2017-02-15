@@ -30,8 +30,23 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 )
 
 class EditComment extends Component {
-  componentWillMount() {
-    this.handleInitialize();
+  componentDidMount() {
+    if (this.props.params.id) {
+      const { signedinUser } = this.props;
+      this.checkAuthor(signedinUser).then(() => {
+          this.handleInitialize();
+        }, (err) => {
+          this.props.authError('You do have not permission to do that!');
+          browserHistory.push('/');
+      });
+    }
+  }
+
+  checkAuthor(signedinUser) {
+    const { author:commentAuthor } = this.props;
+    return new Promise(function(resolve,reject){
+        commentAuthor === signedinUser ? resolve() : reject()
+    });
   }
 
   componentWillUnmount() {
@@ -84,6 +99,7 @@ function mapStateToProps(state) {
     campgroundId: state.comment.campgroundId,
     commentId: state.comment.commentId,
     commentText: state.comment.commentText,
+    signedinUser: state.signedinUser.username,
   };
 }
 

@@ -51,7 +51,7 @@ class CampgroundForm extends Component {
       this.checkAuthor(signedinUser).then(() => {
           this.handleInitialize();
         }, (err) => {
-          this.props.authError('You do have permission to do that!');
+          this.props.authError('You do not have permission to do that!');
           browserHistory.push('/');
       });
     }
