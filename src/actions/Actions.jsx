@@ -325,8 +325,11 @@ export function deleteComment({ campgroundId, commentId }) {
 
 export function addFavorite({ userId, campgroundId }) {
   return function(dispatch) {
-    // Submit email/password to server
-    axios.post(`${ROOT_URL}/favorites/create`, { userId, campgroundId })
+    const config = {
+      headers: { authorization: localStorage.getItem('token') }
+    };
+
+    axios.post(`${ROOT_URL}/favorites/create?userId=${userId}`, { userId, campgroundId }, config)
     .then(response => {
       dispatch(authSuccess(response.data.message));
       dispatch(fetchFavorites({ userId }));
@@ -338,7 +341,11 @@ export function addFavorite({ userId, campgroundId }) {
 
 export function fetchFavorites({ userId }) {
   return function (dispatch) {
-    axios.get(`${ROOT_URL}/favorites/${userId}`)
+    const config = {
+      headers: { authorization: localStorage.getItem('token') }
+    };
+
+    axios.get(`${ROOT_URL}/favorites/${userId}`, config)
     .then(response => {
       dispatch({ type: UPDATE_FAVORITES, payload: response.data.favorites});
     })
@@ -348,7 +355,11 @@ export function fetchFavorites({ userId }) {
 
 export function deleteFavorite({ userId, favoriteId }) {
   return function (dispatch) {
-    axios.post(`${ROOT_URL}/favorites/delete/${favoriteId}`, {userId, favoriteId })
+    const config = {
+      headers: { authorization: localStorage.getItem('token') }
+    };
+
+    axios.delete(`${ROOT_URL}/favorites/delete/${favoriteId}?userId=${userId}`, config)
     .then(response => {
       dispatch(fetchFavorites({ userId }));
     })
