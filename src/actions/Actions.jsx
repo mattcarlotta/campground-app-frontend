@@ -193,7 +193,6 @@ export function fetchWeather(zip) {
 //==========================================================================
 // Campground Create, Update, Delete
 //==========================================================================
-
 export function addNewCampground({ name, image, description, location, zip, author }) {
   return function(dispatch) {
     const config = {
@@ -261,7 +260,6 @@ export function deleteCampground(id) {
 //==========================================================================
 // Comment Create, Update, Delete
 //==========================================================================
-
 export function addComment({ comment, id }) {
   return function(dispatch) {
     const config = {
@@ -322,7 +320,6 @@ export function deleteComment({ campgroundId, commentId }) {
 //==========================================================================
 // Favorites Create, Delete
 //==========================================================================
-
 export function addFavorite({ userId, campgroundId }) {
   return function(dispatch) {
     const config = {

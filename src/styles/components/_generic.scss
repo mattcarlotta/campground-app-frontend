@@ -61,6 +61,15 @@
   margin-top: 7rem;
 }
 
+.marginalize {
+  margin: 0 .7rem;
+  margin-bottom: 1.5rem;
+}
+
+.no-padding {
+  padding: 0;
+}
+
 .offset-right {
   font-weight: 900;
   float: right;
@@ -69,16 +78,6 @@
 
 .on-top {
   z-index: 3;
-}
-
-.marginalize {
-  margin: 0 .7rem;
-  margin-bottom: 1.5rem;
-}
-
-
-.no-padding {
-  padding: 0;
 }
 
 .padded {

@@ -3802,105 +3802,6 @@ a.thumbnail {
 .clearfix::after {
   clear: both; }
 
-.top-bar, .top-bar ul {
-  background-color: #f7f7f7;
-  border-radius: .25em; }
-
-.top-bar {
-  border-bottom: 1px solid #d4e3f1;
-  padding: 0.5rem 0.5rem 0rem 0.5rem; }
-  .top-bar .menu-text {
-    color: #2199e8;
-    font-size: 0.9rem;
-    padding: 0.7rem 0.3rem; }
-  .top-bar .top-bar-middle {
-    width: 200px; }
-    .top-bar .top-bar-middle input {
-      max-width: 400px;
-      width: 400px; }
-  .top-bar .menu > li > a {
-    display: block;
-    line-height: 1;
-    font-size: .97rem;
-    margin-bottom: 0; }
-  .top-bar .breadcrumbs li {
-    text-transform: none;
-    font-weight: normal; }
-  .top-bar .active {
-    font-weight: bold; }
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 10, 0.85); }
-
-.modal-content {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  background-color: #f9f9f9;
-  padding: 0 20px;
-  outline: none; }
-
-.signin-modal-size {
-  width: 600px; }
-
-.signup-modal-size {
-  width: 600px; }
-
-.background-image {
-  background: url(/assets/images/background_lowRes.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #fff; }
-
-.app {
-  display: flex;
-  justify-content: space-around; }
-
-body {
-  background-color: #f9f9f9;
-  font-size: .95rem;
-  color: #337ab7; }
-  body .modal {
-    position: fixed;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    border: 1px solid #ccc;
-    background: #fff;
-    overflow: auto;
-    border-radius: 4px;
-    outline: none;
-    padding: 20px;
-    display: block; }
-
-html {
-  height: 100%; }
-
-.content {
-  padding-top: 75%;
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1) 0px 18px 23px rgba(0, 0, 0, 0.1); }
-  .content h1 {
-    font-weight: 700;
-    font-size: 3.5em; }
-  .content h4 {
-    font-weight: 700;
-    font-size: 1.1em; }
-  .content hr {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
-
 .container__header {
   background: #eee;
   border: 1px solid #d4e3f1;
@@ -3966,74 +3867,55 @@ li {
 .styled:hover {
   background-color: #356464; }
 
-.campground {
+.avatar-padding {
+  width: 70px;
   padding: 0;
-  margin-bottom: 2rem;
-  border: 1px solid #d4e3f1;
-  background: #eee; }
-  .campground .title {
-    font-size: 1.1rem;
-    color: #337ab7;
-    font-weight: 600;
-    margin-top: .5rem; }
-  .campground .description {
-    padding: 1rem; }
-  .campground .submitted {
-    margin-right: 1rem;
-    text-align: right; }
+  margin-right: 1rem; }
 
-.title-break {
-  margin: 1.2rem 10rem; }
+.campground-author {
+  background-color: #2199e8;
+  color: #fefefe;
+  padding: 0 .2rem; }
 
-.margin-left {
-  margin-left: 0.5rem; }
+.comments-container .comments-icon {
+  color: #337ab7;
+  font-weight: 600;
+  cursor: pointer;
+  width: 125px; }
 
-.button.warning {
-  width: 60px;
-  color: white; }
+.comments-container .comment-box {
+  font-size: .85rem;
+  margin-bottom: 2rem; }
 
-.button.warning.tiny {
-  padding: 1px 5px;
-  font-size: 0.9rem;
+.comments-container .new-comment-post {
+  word-wrap: break-word;
+  border-radius: 2px;
   line-height: 1.5;
-  width: 30px; }
+  margin: 0;
+  background-color: transparent;
+  resize: none; }
 
-.button.alert.tiny {
-  padding: 1px 5px;
-  font-size: 0.9rem;
-  line-height: 1.5; }
+.comments-container hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #eee; }
 
-.input {
-  overflow: hidden;
-  padding-right: 0.5em; }
+.posted-at {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #8a8a8a;
+  display: inline-flex;
+  margin-left: 1rem; }
 
-.favorites-button-background-transparent {
-  background-color: none; }
+.updated-icon {
+  color: navy;
+  background-color: bisque;
+  font-size: .5rem;
+  padding: .2rem;
+  margin-left: .25rem; }
 
-.favorites-button-font-red {
-  color: red;
-  font-size: 1.25rem; }
-
-.favorites-button {
-  border: 1px solid transparent;
-  padding: .25rem;
-  margin-right: .5rem;
-  float: right;
-  outline: none;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out; }
-
-.large-image-container {
-  max-width: none;
-  margin-right: auto;
-  margin-left: auto; }
-
-.campground-details {
-  padding: 0.75rem;
-  margin-bottom: 2rem;
-  border: 1px solid #d4e3f1;
-  background: #eee; }
-  .campground-details h3, .campground-details h4, .campground-details p {
-    color: #337ab7; }
+.user-comment {
+  margin: 0.5rem 0 0.2rem 0; }
 
 .error-handlers {
   margin-bottom: 1rem;
@@ -4100,6 +3982,13 @@ li {
 .index-link {
   margin-top: 7rem; }
 
+.marginalize {
+  margin: 0 .7rem;
+  margin-bottom: 1.5rem; }
+
+.no-padding {
+  padding: 0; }
+
 .offset-right {
   font-weight: 900;
   float: right;
@@ -4107,13 +3996,6 @@ li {
 
 .on-top {
   z-index: 3; }
-
-.marginalize {
-  margin: 0 .7rem;
-  margin-bottom: 1.5rem; }
-
-.no-padding {
-  padding: 0; }
 
 .padded {
   padding-top: 1rem; }
@@ -4151,55 +4033,184 @@ li {
   text-transform: uppercase;
   font-weight: 800; }
 
-.avatar-padding {
-  width: 70px;
-  padding: 0;
-  margin-right: 1rem; }
+.background-image {
+  background: url(/assets/images/background_lowRes.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff; }
 
-.campground-author {
-  background-color: #2199e8;
-  color: #fefefe;
-  padding: 0 .2rem; }
+.app {
+  display: flex;
+  justify-content: space-around; }
 
-.comments-container .comments-icon {
-  color: #337ab7;
-  font-weight: 600;
-  cursor: pointer;
-  width: 125px; }
+body {
+  background-color: #f9f9f9;
+  font-size: .95rem;
+  color: #337ab7; }
+  body .modal {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    display: block; }
 
-.comments-container .comment-box {
-  font-size: .85rem;
-  margin-bottom: 2rem; }
+html {
+  height: 100%; }
 
-.comments-container .new-comment-post {
-  word-wrap: break-word;
-  border-radius: 2px;
+.content {
+  padding-top: 75%;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1) 0px 18px 23px rgba(0, 0, 0, 0.1); }
+  .content h1 {
+    font-weight: 700;
+    font-size: 3.5em; }
+  .content h4 {
+    font-weight: 700;
+    font-size: 1.1em; }
+  .content hr {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+
+.breadcrumbs li {
+  text-transform: none;
+  font-weight: normal; }
+  .breadcrumbs li .active {
+    font-weight: bold; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 10, 0.85); }
+
+.modal-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  padding: 0 20px;
+  outline: none; }
+
+.signin-modal-size {
+  width: 600px; }
+
+.signup-modal-size {
+  width: 600px; }
+
+.top-bar {
+  border-bottom: 1px solid #d4e3f1;
+  padding: 0.5rem 0.5rem 0rem 0.5rem; }
+  .top-bar .menu-text {
+    color: #2199e8;
+    font-size: 0.9rem;
+    padding: 0.7rem 0.3rem; }
+  .top-bar .top-bar-middle {
+    width: 200px; }
+    .top-bar .top-bar-middle input {
+      max-width: 400px;
+      width: 400px; }
+  .top-bar .top-bar ul {
+    background-color: #f7f7f7;
+    border-radius: .25em; }
+  .top-bar .menu > li > a {
+    display: block;
+    line-height: 1;
+    font-size: .97rem;
+    margin-bottom: 0; }
+
+.top-bar, .top-bar ul {
+  background-color: #f7f7f7;
+  border-radius: .25em; }
+
+.not-found-image {
+  background: url(/assets/images/not-found.png);
+  background-size: 750px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f9f9f9; }
+
+.button.alert.tiny {
+  padding: 1px 5px;
+  font-size: 0.9rem;
+  line-height: 1.5; }
+
+.button.warning {
+  width: 60px;
+  color: white; }
+
+.button.warning.tiny {
+  padding: 1px 5px;
+  font-size: 0.9rem;
   line-height: 1.5;
-  margin: 0;
-  background-color: transparent;
-  resize: none; }
+  width: 30px; }
 
-.comments-container hr {
-  margin: 2rem 0;
-  border: 0;
-  border-top: 1px solid #eee; }
+.campground {
+  padding: 0;
+  margin-bottom: 2rem;
+  border: 1px solid #d4e3f1;
+  background: #eee; }
+  .campground .title {
+    font-size: 1.1rem;
+    color: #337ab7;
+    font-weight: 600;
+    margin-top: .5rem; }
+  .campground .description {
+    padding: 1rem; }
+  .campground .submitted {
+    margin-right: 1rem;
+    text-align: right; }
 
-.posted-at {
-  font-size: 0.75rem;
-  font-weight: normal;
-  color: #8a8a8a;
-  display: inline-flex;
-  margin-left: 1rem; }
+.campground-details {
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+  border: 1px solid #d4e3f1;
+  background: #eee; }
+  .campground-details h3, .campground-details h4, .campground-details p {
+    color: #337ab7; }
 
-.user-comment {
-  margin: 0.5rem 0 0.2rem 0; }
+.favorites-button {
+  border: 1px solid transparent;
+  padding: .25rem;
+  margin-right: .5rem;
+  float: right;
+  outline: none;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out; }
 
-.updated-icon {
-  color: navy;
-  background-color: bisque;
-  font-size: .5rem;
-  padding: .2rem;
-  margin-left: .25rem; }
+.favorites-button-background-transparent {
+  background-color: none; }
+
+.favorites-button-font-red {
+  color: red;
+  font-size: 1.25rem; }
+
+.input {
+  overflow: hidden;
+  padding-right: 0.5em; }
+
+.large-image-container {
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto; }
+
+.margin-left {
+  margin-left: 0.5rem; }
+
+.title-break {
+  margin: 1.2rem 10rem; }
 
 .avatar-lg {
   border-radius: 50%;
@@ -4214,7 +4225,7 @@ li {
   background: #eee;
   border: 1px solid #d4e3f1;
   padding: 1.5rem;
-  margin: 10rem 0 3rem 0;
+  margin: 6rem 0 3rem 0;
   color: #235585; }
 
 .control-panel-title {
@@ -4227,13 +4238,3 @@ li {
   background: #eee; }
   .favorite-details h3, .favorite-details h4, .favorite-details p {
     color: #337ab7; }
-
-.not-found-image {
-  background: url(/assets/images/not-found.png);
-  background-size: 750px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #f9f9f9; }
-
-.notfound-container {
-  font-size: 10rem; }

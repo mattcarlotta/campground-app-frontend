@@ -60,6 +60,16 @@ class UserCP extends Component{
 
     return (
       <div className="row">
+        <div className="nav-container">
+          <ul className="nav-breadcrumbs">
+            <li>
+              <Link to="/">Home </Link> <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+              <span className="campground-name"> User Control Panel</span>
+            </li>
+          </ul>
+        </div>
         <div className="text-center">
           <div className="row">
             <div className="columns medium-2 avatar-lg-padding">
@@ -79,9 +89,6 @@ class UserCP extends Component{
               </div>
             </div>
           </div>
-        </div>
-        <div className="index-link">
-          <button onClick={browserHistory.goBack} className="button primary rounded float-left"><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
         </div>
       </div>
     );

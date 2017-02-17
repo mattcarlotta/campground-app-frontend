@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 

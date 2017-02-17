@@ -7,7 +7,7 @@ import RenderAlert from '../containers/RenderAlert';
 import RenderComments from '../containers/RenderComments';
 import * as actions from '../actions/Actions';
 
-const unfavorite = "favorites-button favorites-background-transparent favorites-button-font-red circle fa fa-heart-o cursor";
+const notfavorite = "favorites-button favorites-background-transparent favorites-button-font-red circle fa fa-heart-o cursor";
 
 const favorite = "favorites-button favorites-button-font-red favorites-button-background-transparent circle fa fa-heart cursor";
 
@@ -48,7 +48,7 @@ class Favorites extends Component {
   }
 
   onMouseLeaveHandler() {
-    ReactDOM.findDOMNode(this.refs.icon).className = `${unfavorite}`;
+    ReactDOM.findDOMNode(this.refs.icon).className = `${notfavorite}`;
   }
 
   onClickHandler(e) {
@@ -71,7 +71,7 @@ class Favorites extends Component {
     } else if (!favorited) {
      return (
        <span>
-         <button className={unfavorite} aria-hidden="true"
+         <button className={notfavorite} aria-hidden="true"
            onMouseEnter={this.onMouseEnterHandler.bind(this)}
            onMouseLeave={this.onMouseLeaveHandler.bind(this)}
            onClick={this.onClickHandler.bind(this)} ref="icon">

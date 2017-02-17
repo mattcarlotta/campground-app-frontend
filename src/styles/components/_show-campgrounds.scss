@@ -1,3 +1,21 @@
+.button.alert.tiny {
+  padding: 1px 5px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.button.warning {
+  width: 60px;
+  color: white;
+}
+
+.button.warning.tiny {
+  padding: 1px 5px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  width: 30px;
+}
+
 .campground {
   padding: 0;
   margin-bottom: 2rem;
@@ -21,48 +39,15 @@
   }
 }
 
-.favorites-container {
-  // transform: translate(-13%, -15%);
-}
+.campground-details {
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+  border: 1px solid $coolgrey;
+  background: $light-grey;
 
-.title-break {
-  margin: 1.2rem 10rem;
-}
-
-.margin-left {
-  margin-left: 0.5rem;
-}
-
-.button.warning {
-  width: 60px;
-  color: white;
-}
-
-.button.warning.tiny {
-  padding: 1px 5px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  width: 30px;
-}
-
-.button.alert.tiny {
-  padding: 1px 5px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.input {
-  overflow: hidden;
-  padding-right: 0.5em;
-}
-
-.favorites-button-background-transparent {
-  background-color: none;
-}
-
-.favorites-button-font-red {
-  color: red;
-  font-size: 1.25rem;
+  h3, h4, p {
+    color: $blue;
+  }
 }
 
 .favorites-button {
@@ -75,19 +60,30 @@
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
 }
 
+.favorites-button-background-transparent {
+  background-color: none;
+}
+
+.favorites-button-font-red {
+  color: red;
+  font-size: 1.25rem;
+}
+
+.input {
+  overflow: hidden;
+  padding-right: 0.5em;
+}
+
 .large-image-container {
   max-width: none;
   margin-right: auto;
   margin-left: auto;
 }
 
-.campground-details {
-  padding: 0.75rem;
-  margin-bottom: 2rem;
-  border: 1px solid $coolgrey;
-  background: $light-grey;
+.margin-left {
+  margin-left: 0.5rem;
+}
 
-  h3, h4, p {
-    color: $blue;
-  }
+.title-break {
+  margin: 1.2rem 10rem;
 }

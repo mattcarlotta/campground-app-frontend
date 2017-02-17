@@ -1,49 +1,10 @@
-.top-bar, .top-bar ul {
-  background-color: $nav-background;
-  border-radius: .25em;
-}
-
-
-.top-bar {
-  border-bottom: 1px solid $coolgrey;
-  padding: 0.5rem 0.5rem 0rem 0.5rem;
-
- .menu-text {
-    color: $nav-text-color;
-    font-size: 0.9rem;
-    padding: 0.7rem 0.3rem;
-  }
-
-  .top-bar-middle {
-    // position: absolute;
-    // left: 50%;
-    // transform: translate(-50%, 0%);
-    width: 200px;
-    // margin-left: 7rem;
-  //  text-align: center;
-  //  vertical-align: middle;
-    input {
-    max-width: 400px;
-    width: 400px;
-    }
-  }
-
-  .menu > li > a {
-    display: block;
-    line-height: 1;
-    font-size: .97rem;
-    margin-bottom: 0;
-  }
-
 .breadcrumbs li {
   text-transform: none;
   font-weight: normal;
-}
 
   .active {
     font-weight: bold;
   }
-
 }
 
 .modal-overlay {
@@ -76,4 +37,41 @@
 .signup-modal-size {
   // height: 800px;
   width: 600px;
+}
+
+.top-bar {
+  border-bottom: 1px solid $coolgrey;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+
+ .menu-text {
+    color: $nav-text-color;
+    font-size: 0.9rem;
+    padding: 0.7rem 0.3rem;
+  }
+
+  .top-bar-middle {
+    width: 200px;
+
+    input {
+    max-width: 400px;
+    width: 400px;
+    }
+  }
+
+  .top-bar ul {
+    background-color: $nav-background;
+    border-radius: .25em;
+  }
+
+  .menu > li > a {
+    display: block;
+    line-height: 1;
+    font-size: .97rem;
+    margin-bottom: 0;
+  }
+}
+
+.top-bar, .top-bar ul {
+  background-color: $nav-background;
+  border-radius: .25em;
 }

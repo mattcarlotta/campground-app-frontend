@@ -28,7 +28,7 @@ require('style!css!sass!applicationStyles');
 //================================================================
 let store = createStore(reducer, compose(
   applyMiddleware(thunk),
-  window.devToolsExtension ? window.devToolsExtension() : f => f
+  // window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 
 const token = localStorage.getItem('token');
