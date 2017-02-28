@@ -19,6 +19,7 @@ import {
 } from './Types';
 
 import {
+  API_KEY,
   WEATHER_URL
 } from './config/OpenWeatherMapAPI';
 
@@ -175,7 +176,7 @@ export function fetchCampgroundWithUpdatedComments(id){
 
 export function fetchWeather(zip) {
   return function(dispatch) {
-    axios.get(`${WEATHER_URL}&zip=${zip},us}`)
+    axios.get(`${WEATHER_URL}?zip=${zip},us&${API_KEY}`)
     .then(response => {
       dispatch({
         type: FETCH_WEATHER,

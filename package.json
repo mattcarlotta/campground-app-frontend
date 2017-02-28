@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "start": "nodemon server.js & webpack -w"
+    "start": "nodemon server.js && webpack -w"
   },
   "author": "",
   "license": "ISC",

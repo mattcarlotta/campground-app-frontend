@@ -7,7 +7,9 @@ This app integrates:
 - Foundation Sites
 - Moment
 - jQuery
+- Karma
 - Node Sass
+- NodeJS
 - React
 - React Google Maps
 - React Modal
